@@ -6,6 +6,7 @@
         <div class="task" v-if="!task.isDone && !task.weekly">
           <div class="option">{{ task.value }}</div>
           <div class="complete" @click="task.isDone = !task.isDone">DONE</div>
+          <div class="remove" @click="removeTask(task)">X</div>
         </div>
       </div>
     </div>
@@ -16,6 +17,7 @@
         <div class="task" v-if="task.weekly && !task.isDone">
           <div class="option">{{ task.value }}</div>
           <div class="complete" @click="task.isDone = !task.isDone">DONE</div>
+          <div class="remove" @click="removeTask(task)">X</div>
         </div>
       </div>
     </div>
@@ -26,6 +28,7 @@
         <div class="task" v-if="task.isDone && !task.weekly">
           <div class="option">{{ task.value }}</div>
           <div class="complete" @click="task.isDone = !task.isDone">DONE</div>
+          <div class="remove" @click="removeTask(task)">X</div>
         </div>
       </div>
     </div>
@@ -36,6 +39,7 @@
         <div class="task" v-if="task.isDone && task.weekly">
           <div class="option">{{ task.value }}</div>
           <div class="complete" @click="task.isDone = !task.isDone">DONE</div>
+          <div class="remove" @click="removeTask(i)">X</div>
         </div>
       </div>
     </div>
@@ -60,6 +64,9 @@ export default {
         isDone: false,
         weekly: !daily
       });
+    },
+    removeTask(i) {
+      this.tasks.splice(this.tasks.indexOf(i), 1);
     }
   },
   data() {
@@ -159,5 +166,13 @@ input {
 }
 label {
   margin-bottom: 0.25em;
+}
+.remove {
+  color: white;
+  height: 20px;
+  width: 20px;
+  background: red;
+  margin: 0 auto;
+  cursor: pointer;
 }
 </style>
