@@ -16,5 +16,7 @@ h1 {
 }
 .header-wrapper {
   display: flex;
+  background: #2c3e50;
+  color: white;
 }
 </style>
