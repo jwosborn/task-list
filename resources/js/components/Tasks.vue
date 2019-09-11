@@ -9,7 +9,21 @@
     </div>
     <h3>Weekly Tasks</h3>
     <div :key="task" class="task-wrapper" v-for="task in weeklyTasks">
-      <div class="task" v-if="!task.isDone">
+      <div class="task" v-if="task.weekly && !task.isDone">
+        <div class="option">{{ task.value }}</div>
+        <div class="complete" @click="task.isDone = !task.isDone">DONE</div>
+      </div>
+    </div>
+    <h3>Completed Daily Tasks</h3>
+    <div :key="task" class="task-wrapper" v-for="task in dailyTasks">
+      <div class="task" v-if="task.isDone && !task.weekly">
+        <div class="option">{{ task.value }}</div>
+        <div class="complete" @click="task.isDone = !task.isDone">DONE</div>
+      </div>
+    </div>
+    <h3>Completed Weekly Tasks</h3>
+    <div :key="task" class="task-wrapper" v-for="task in weeklyTasks">
+      <div class="task" v-if="task.isDone && task.weekly">
         <div class="option">{{ task.value }}</div>
         <div class="complete" @click="task.isDone = !task.isDone">DONE</div>
       </div>
@@ -29,34 +43,40 @@ export default {
         {
           name: "hebrew-reading",
           value: "5 Verses of Hebrew",
-          isDone: false
+          isDone: false,
+          weekly: false
         },
         {
           name: "various-reading",
           value: "15 Minutes of Various Reading",
-          isDone: false
+          isDone: false,
+          weekly: false
         },
         {
           name: "budget",
           value: "All Transactions in EveryDollar",
-          isDone: false
+          isDone: false,
+          weekly: false
         }
       ],
       weeklyTasks: [
         {
           name: "goetchius",
           value: "1 Chapter of Goetchius",
-          isDone: false
+          isDone: false,
+          weekly: true
         },
         {
           name: "convo",
           value: "1 Intentional Conversation",
-          isDone: false
+          isDone: false,
+          weekly: true
         },
         {
           name: "dev",
           value: "12 Hours of Software Development",
-          isDone: false
+          isDone: false,
+          weekly: true
         }
       ],
       toDo: [],
