@@ -39,6 +39,13 @@
         </div>
       </div>
     </div>
+    <div class="new-task task-wrapper">
+      <h3>New Task</h3>
+      <input type="text" v-model="input" />
+      <input type="checkbox" id="daily" v-model="daily" />
+      <label for="daily">Daily</label>
+      <div class="complete" @click="addTask(input, daily)">ADD</div>
+    </div>
   </div>
 </template>
 
@@ -47,6 +54,16 @@ export default {
   name: "Tasks",
   props: {
     msg: String
+  },
+  methods: {
+    addTask(input, daily) {
+      this.tasks.push({
+        name: input,
+        value: input,
+        isDone: false,
+        weekly: !daily
+      });
+    }
   },
   data() {
     return {
@@ -87,9 +104,7 @@ export default {
           isDone: false,
           weekly: true
         }
-      ],
-      toDo: [],
-      done: []
+      ]
     };
   }
 };
@@ -103,11 +118,13 @@ h3 {
   color: #f5f5f5;
   width: 12vw;
   height: 55px;
+  border-radius: 5%;
 }
 .task-list-wrapper {
   display: flex;
   flex-direction: row;
   margin: 0 1em;
+  height: 450px;
 }
 .task {
   display: flex;
@@ -115,6 +132,10 @@ h3 {
   margin: 5px auto;
   background-color: lightgray;
   width: 150px;
+  border-radius: 12%;
+}
+.option {
+  margin: 7px auto;
 }
 .task-wrapper {
   display: flex;
@@ -133,5 +154,11 @@ h3 {
   cursor: pointer;
   border-radius: 15%;
   box-shadow: 1px 1px 1px #222222;
+}
+input {
+  margin: 0.5em auto;
+}
+label {
+  margin-bottom: 0.25em;
 }
 </style>

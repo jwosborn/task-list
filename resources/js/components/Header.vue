@@ -1,6 +1,6 @@
 <template>
   <div class="header-wrapper">
-    <h1>Life Plan Tasks</h1>
+    <h1>TO-DO LIST</h1>
   </div>
 </template>
 <script>
