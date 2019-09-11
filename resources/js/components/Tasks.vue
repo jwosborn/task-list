@@ -40,7 +40,7 @@
       </div>
     </div>
     <div class="new-task task-wrapper">
-      <h3>New Task</h3>
+      <h3>Add a New Task</h3>
       <input type="text" v-model="input" />
       <input type="checkbox" id="daily" v-model="daily" />
       <label for="daily">Daily</label>
@@ -52,9 +52,6 @@
 <script>
 export default {
   name: "Tasks",
-  props: {
-    msg: String
-  },
   methods: {
     addTask(input, daily) {
       this.tasks.push({
@@ -104,7 +101,9 @@ export default {
           isDone: false,
           weekly: true
         }
-      ]
+      ],
+      input: "",
+      daily: true
     };
   }
 };
