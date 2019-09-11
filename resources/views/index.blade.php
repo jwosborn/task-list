@@ -8,5 +8,5 @@
   <div id="task-list"></div>
 </body>
 
-<script src="{{ asset('js/main.js') }}"></script>
+<script src="{{ mix('/js/main.js') }}"></script>
 </html>
