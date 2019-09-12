@@ -12263,10 +12263,10 @@ __webpack_require__.r(__webpack_exports__);
 
 exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
 // imports
-
+exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap);", ""]);
 
 // module
-exports.push([module.i, "\n#app {\n  font-family: \"Avenir\", Helvetica, Arial, sans-serif;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n  text-align: center;\n  color: #2c3e50;\n  margin-top: 10px;\n}\nh1 {\n  margin: 0;\n}\n", ""]);
+exports.push([module.i, "\n#app {\n  font-family: \"Nanum Gothic\", sans-serif;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n  text-align: center;\n  color: #2c3e50;\n  margin-top: 10px;\n}\nh1 {\n  margin: 0;\n}\n", ""]);
 
 // exports
 
