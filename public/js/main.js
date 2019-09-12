@@ -12247,7 +12247,7 @@ __webpack_require__.r(__webpack_exports__);
       }],
       input: "",
       daily: true,
-      image: __webpack_require__(/*! @/../../public/jpg/lined-paper.jpg */ "./public/jpg/lined-paper.jpg")
+      image: __webpack_require__(/*! @/../../public/jpg/light-wood.jpg */ "./public/jpg/light-wood.jpg")
     };
   }
 });
@@ -12285,7 +12285,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.footer-wrapper[data-v-61a7c374] {\n  display: flex;\n  margin: 1.25em auto 3px auto;\n  width: 98vw;\n  height: 60px;\n  background: #42b983;\n  color: #f5f5f5;\n}\nspan[data-v-61a7c374] {\n  margin: auto;\n}\n", ""]);
+exports.push([module.i, "\n.footer-wrapper[data-v-61a7c374] {\n  display: flex;\n  margin: 1.25em auto 3px auto;\n  width: 98vw;\n  height: 60px;\n  background: #736a62;\n  color: #f5f5f5;\n}\nspan[data-v-61a7c374] {\n  margin: auto;\n}\n", ""]);
 
 // exports
 
@@ -12304,7 +12304,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\nh1[data-v-1f42fb90] {\n  margin: 0 auto;\n  font-size: 5em;\n}\n.header-wrapper[data-v-1f42fb90] {\n  display: flex;\n  background: #2c3e50;\n  color: white;\n}\n", ""]);
+exports.push([module.i, "\nh1[data-v-1f42fb90] {\n  margin: 0 auto;\n  font-size: 5em;\n}\n.header-wrapper[data-v-1f42fb90] {\n  display: flex;\n  background: #736a62;\n  color: white;\n}\n", ""]);
 
 // exports
 
@@ -12323,7 +12323,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\nh3[data-v-43ab059a] {\n  margin: 0 auto 0.75em;\n  background: #42b983;\n  color: #f5f5f5;\n  width: 12vw;\n  height: 55px;\n  border-radius: 5%;\n}\n.task-list-wrapper[data-v-43ab059a] {\n  display: flex;\n  flex-direction: row;\n  margin: 0 1em;\n  background-position: top center;\n  background-size: cover;\n  background-repeat: no-repeat;\n}\n.task[data-v-43ab059a] {\n  display: flex;\n  flex-direction: column;\n  margin: 5px auto;\n  background-color: lightgray;\n  width: 150px;\n  border-radius: 12%;\n}\n.option[data-v-43ab059a] {\n  margin: 7px auto;\n}\n.task-wrapper[data-v-43ab059a] {\n  display: flex;\n  flex-direction: column;\n  margin: 1em;\n  flex-grow: 1;\n}\n.complete[data-v-43ab059a] {\n  margin: auto;\n  margin-bottom: 0.5em;\n  height: 1.5em;\n  width: 50px;\n  background-color: #2c3e50;\n  color: white;\n  cursor: pointer;\n  border-radius: 15%;\n  box-shadow: 1px 1px 1px #222222;\n}\ninput[data-v-43ab059a] {\n  margin: 0.5em auto;\n  box-shadow: 3px 3px black;\n}\nlabel[data-v-43ab059a] {\n  margin-bottom: 0.25em;\n}\n.remove[data-v-43ab059a] {\n  color: white;\n  height: 20px;\n  width: 20px;\n  background: red;\n  margin: 0 auto;\n  cursor: pointer;\n}\n.add-button[data-v-43ab059a] {\n  margin-top: 0.05em;\n}\n", ""]);
+exports.push([module.i, "\nh3[data-v-43ab059a] {\n  margin: 0 auto 0.75em;\n  background: #bfada3;\n  color: #f5f5f5;\n  width: 12vw;\n  height: 55px;\n  border-radius: 5%;\n}\n.task-list-wrapper[data-v-43ab059a] {\n  display: flex;\n  flex-direction: row;\n  margin: 0 1em;\n  background-position: top center;\n  background-size: contain;\n  background-color: #d9cdbf;\n  background-blend-mode: darken;\n}\n.task[data-v-43ab059a] {\n  display: flex;\n  flex-direction: column;\n  margin: 5px auto;\n  background-color: #f2e6d8;\n  width: 150px;\n  border-radius: 12%;\n}\n.option[data-v-43ab059a] {\n  margin: 7px auto;\n  color: black;\n}\n.task-wrapper[data-v-43ab059a] {\n  display: flex;\n  flex-direction: column;\n  margin: 1em;\n  flex-grow: 1;\n}\n.complete[data-v-43ab059a] {\n  margin: auto;\n  margin-bottom: 0.5em;\n  height: 1.5em;\n  width: 50px;\n  background-color: #261d0d;\n  color: white;\n  cursor: pointer;\n  border-radius: 15%;\n  box-shadow: 1px 1px 1px #222222;\n}\ninput[data-v-43ab059a] {\n  margin: 0.5em auto;\n  border: 2px solid #bfada3;\n  background: #f2e6d8;\n  color: #2c3e50;\n  height: 25px;\n}\nlabel[data-v-43ab059a] {\n  margin-bottom: 0.25em;\n}\n.remove[data-v-43ab059a] {\n  color: white;\n  height: 20px;\n  width: 20px;\n  background: #bfada3;\n  margin: 0 auto;\n  cursor: pointer;\n}\n.add-button[data-v-43ab059a] {\n  margin-top: 0.05em;\n}\n", ""]);
 
 // exports
 
@@ -14050,14 +14050,14 @@ module.exports = g;
 
 /***/ }),
 
-/***/ "./public/jpg/lined-paper.jpg":
-/*!************************************!*\
-  !*** ./public/jpg/lined-paper.jpg ***!
-  \************************************/
+/***/ "./public/jpg/light-wood.jpg":
+/*!***********************************!*\
+  !*** ./public/jpg/light-wood.jpg ***!
+  \***********************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/lined-paper.jpg?548b65a55ff2edcc075e3e21ac0d901a";
+module.exports = "/images/light-wood.jpg?d7250486cd24bbad1d638fe9f89fd0ac";
 
 /***/ }),
 

@@ -117,7 +117,7 @@ export default {
       ],
       input: "",
       daily: true,
-      image: require("@/../../public/jpg/lined-paper.jpg")
+      image: require("@/../../public/jpg/light-wood.jpg")
     };
   }
 };
@@ -127,7 +127,7 @@ export default {
 <style scoped>
 h3 {
   margin: 0 auto 0.75em;
-  background: #42b983;
+  background: #bfada3;
   color: #f5f5f5;
   width: 12vw;
   height: 55px;
@@ -138,19 +138,21 @@ h3 {
   flex-direction: row;
   margin: 0 1em;
   background-position: top center;
-  background-size: cover;
-  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: #d9cdbf;
+  background-blend-mode: darken;
 }
 .task {
   display: flex;
   flex-direction: column;
   margin: 5px auto;
-  background-color: lightgray;
+  background-color: #f2e6d8;
   width: 150px;
   border-radius: 12%;
 }
 .option {
   margin: 7px auto;
+  color: black;
 }
 .task-wrapper {
   display: flex;
@@ -163,7 +165,7 @@ h3 {
   margin-bottom: 0.5em;
   height: 1.5em;
   width: 50px;
-  background-color: #2c3e50;
+  background-color: #261d0d;
   color: white;
   cursor: pointer;
   border-radius: 15%;
@@ -171,7 +173,10 @@ h3 {
 }
 input {
   margin: 0.5em auto;
-  box-shadow: 3px 3px black;
+  border: 2px solid #bfada3;
+  background: #f2e6d8;
+  color: #2c3e50;
+  height: 25px;
 }
 label {
   margin-bottom: 0.25em;
@@ -180,7 +185,7 @@ label {
   color: white;
   height: 20px;
   width: 20px;
-  background: red;
+  background: #bfada3;
   margin: 0 auto;
   cursor: pointer;
 }
