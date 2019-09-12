@@ -12155,41 +12155,99 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Tasks",
-  props: {
-    msg: String
+  methods: {
+    addTask: function addTask(input, daily) {
+      this.tasks.push({
+        name: input,
+        value: input,
+        isDone: false,
+        weekly: !daily
+      });
+      this.input = "";
+    },
+    removeTask: function removeTask(i) {
+      this.tasks.splice(this.tasks.indexOf(i), 1);
+    }
   },
   data: function data() {
     return {
-      dailyTasks: [{
+      tasks: [{
         name: "hebrew-reading",
         value: "5 Verses of Hebrew",
-        isDone: false
+        isDone: false,
+        weekly: false
       }, {
         name: "various-reading",
         value: "15 Minutes of Various Reading",
-        isDone: false
+        isDone: false,
+        weekly: false
       }, {
         name: "budget",
         value: "All Transactions in EveryDollar",
-        isDone: false
-      }],
-      weeklyTasks: [{
+        isDone: false,
+        weekly: false
+      }, {
         name: "goetchius",
         value: "1 Chapter of Goetchius",
-        isDone: false
+        isDone: false,
+        weekly: true
       }, {
         name: "convo",
         value: "1 Intentional Conversation",
-        isDone: false
+        isDone: false,
+        weekly: true
       }, {
         name: "dev",
         value: "12 Hours of Software Development",
-        isDone: false
+        isDone: false,
+        weekly: true
       }],
-      toDo: [],
-      done: []
+      input: "",
+      daily: true,
+      image: __webpack_require__(/*! @/../../public/jpg/lined-paper.jpg */ "./public/jpg/lined-paper.jpg")
     };
   }
 });
@@ -12208,7 +12266,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, "\n#app {\n  font-family: \"Avenir\", Helvetica, Arial, sans-serif;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n  text-align: center;\n  color: #2c3e50;\n  margin-top: 60px;\n}\nh1 {\n  margin: 0;\n}\n", ""]);
+exports.push([module.i, "\n#app {\n  font-family: \"Avenir\", Helvetica, Arial, sans-serif;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n  text-align: center;\n  color: #2c3e50;\n  margin-top: 10px;\n}\nh1 {\n  margin: 0;\n}\n", ""]);
 
 // exports
 
@@ -12246,7 +12304,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\nh1[data-v-1f42fb90] {\n  margin: 0 auto;\n  font-size: 5em;\n}\n.header-wrapper[data-v-1f42fb90] {\n  display: flex;\n}\n", ""]);
+exports.push([module.i, "\nh1[data-v-1f42fb90] {\n  margin: 0 auto;\n  font-size: 5em;\n}\n.header-wrapper[data-v-1f42fb90] {\n  display: flex;\n  background: #2c3e50;\n  color: white;\n}\n", ""]);
 
 // exports
 
@@ -12265,7 +12323,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\nh3[data-v-43ab059a] {\n  margin: 15px auto;\n  background: #42b983;\n  color: #f5f5f5;\n  width: 50vw;\n}\n.task[data-v-43ab059a] {\n  display: flex;\n  flex-direction: column;\n  margin: auto;\n  background-color: lightgray;\n  width: 50vw;\n}\n.tasks[data-v-43ab059a] {\n  display: flex;\n}\n.complete[data-v-43ab059a] {\n  margin: auto;\n  margin-bottom: 0.5em;\n  height: 1e.25m;\n  width: 50px;\n  background-color: #2c3e50;\n  color: white;\n  cursor: pointer;\n  border-radius: 15%;\n  box-shadow: 1px 1px 1px #222222;\n}\n", ""]);
+exports.push([module.i, "\nh3[data-v-43ab059a] {\n  margin: 0 auto 0.75em;\n  background: #42b983;\n  color: #f5f5f5;\n  width: 12vw;\n  height: 55px;\n  border-radius: 5%;\n}\n.task-list-wrapper[data-v-43ab059a] {\n  display: flex;\n  flex-direction: row;\n  margin: 0 1em;\n  background-position: top center;\n  background-size: cover;\n  background-repeat: no-repeat;\n}\n.task[data-v-43ab059a] {\n  display: flex;\n  flex-direction: column;\n  margin: 5px auto;\n  background-color: lightgray;\n  width: 150px;\n  border-radius: 12%;\n}\n.option[data-v-43ab059a] {\n  margin: 7px auto;\n}\n.task-wrapper[data-v-43ab059a] {\n  display: flex;\n  flex-direction: column;\n  margin: 1em;\n  flex-grow: 1;\n}\n.complete[data-v-43ab059a] {\n  margin: auto;\n  margin-bottom: 0.5em;\n  height: 1.5em;\n  width: 50px;\n  background-color: #2c3e50;\n  color: white;\n  cursor: pointer;\n  border-radius: 15%;\n  box-shadow: 1px 1px 1px #222222;\n}\ninput[data-v-43ab059a] {\n  margin: 0.5em auto;\n  box-shadow: 3px 3px black;\n}\nlabel[data-v-43ab059a] {\n  margin-bottom: 0.25em;\n}\n.remove[data-v-43ab059a] {\n  color: white;\n  height: 20px;\n  width: 20px;\n  background: red;\n  margin: 0 auto;\n  cursor: pointer;\n}\n.add-button[data-v-43ab059a] {\n  margin-top: 0.05em;\n}\n", ""]);
 
 // exports
 
@@ -13547,7 +13605,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "header-wrapper" }, [
-      _c("h1", [_vm._v("Life Plan Tasks")])
+      _c("h1", [_vm._v("TO-DO LIST")])
     ])
   }
 ]
@@ -13574,62 +13632,277 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
+    {
+      staticClass: "task-list-wrapper",
+      style: {
+        "background-image": "url(" + _vm.image + ")"
+      }
+    },
     [
-      _c("h3", [_vm._v("Daily Tasks")]),
+      _c(
+        "div",
+        { staticClass: "task-wrapper" },
+        [
+          _c("h3", [_vm._v("Daily Tasks")]),
+          _vm._v(" "),
+          _vm._l(_vm.tasks, function(task) {
+            return _c("div", { key: task }, [
+              !task.isDone && !task.weekly
+                ? _c("div", { staticClass: "task" }, [
+                    _c("div", { staticClass: "option" }, [
+                      _vm._v(_vm._s(task.value))
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass: "complete",
+                        on: {
+                          click: function($event) {
+                            task.isDone = !task.isDone
+                          }
+                        }
+                      },
+                      [_vm._v("DONE")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass: "remove",
+                        on: {
+                          click: function($event) {
+                            return _vm.removeTask(task)
+                          }
+                        }
+                      },
+                      [_vm._v("X")]
+                    )
+                  ])
+                : _vm._e()
+            ])
+          })
+        ],
+        2
+      ),
       _vm._v(" "),
-      _vm._l(_vm.dailyTasks, function(task) {
-        return _c("div", { key: task, staticClass: "task-wrapper" }, [
-          !task.isDone
-            ? _c("div", { staticClass: "task" }, [
-                _c("div", { staticClass: "option" }, [
-                  _vm._v(_vm._s(task.value))
-                ]),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass: "complete",
-                    on: {
-                      click: function($event) {
-                        task.isDone = !task.isDone
-                      }
-                    }
-                  },
-                  [_vm._v("DONE")]
-                )
-              ])
-            : _vm._e()
-        ])
-      }),
+      _c(
+        "div",
+        { staticClass: "task-wrapper" },
+        [
+          _c("h3", [_vm._v("Weekly Tasks")]),
+          _vm._v(" "),
+          _vm._l(_vm.tasks, function(task) {
+            return _c("div", { key: task }, [
+              task.weekly && !task.isDone
+                ? _c("div", { staticClass: "task" }, [
+                    _c("div", { staticClass: "option" }, [
+                      _vm._v(_vm._s(task.value))
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass: "complete",
+                        on: {
+                          click: function($event) {
+                            task.isDone = !task.isDone
+                          }
+                        }
+                      },
+                      [_vm._v("DONE")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass: "remove",
+                        on: {
+                          click: function($event) {
+                            return _vm.removeTask(task)
+                          }
+                        }
+                      },
+                      [_vm._v("X")]
+                    )
+                  ])
+                : _vm._e()
+            ])
+          })
+        ],
+        2
+      ),
       _vm._v(" "),
-      _c("h3", [_vm._v("Weekly Tasks")]),
+      _c(
+        "div",
+        { staticClass: "task-wrapper" },
+        [
+          _c("h3", [_vm._v("Completed Daily Tasks")]),
+          _vm._v(" "),
+          _vm._l(_vm.tasks, function(task) {
+            return _c("div", { key: task }, [
+              task.isDone && !task.weekly
+                ? _c("div", { staticClass: "task" }, [
+                    _c("div", { staticClass: "option" }, [
+                      _vm._v(_vm._s(task.value))
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass: "complete",
+                        on: {
+                          click: function($event) {
+                            task.isDone = !task.isDone
+                          }
+                        }
+                      },
+                      [_vm._v("DONE")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass: "remove",
+                        on: {
+                          click: function($event) {
+                            return _vm.removeTask(task)
+                          }
+                        }
+                      },
+                      [_vm._v("X")]
+                    )
+                  ])
+                : _vm._e()
+            ])
+          })
+        ],
+        2
+      ),
       _vm._v(" "),
-      _vm._l(_vm.weeklyTasks, function(task) {
-        return _c("div", { key: task, staticClass: "task-wrapper" }, [
-          !task.isDone
-            ? _c("div", { staticClass: "task" }, [
-                _c("div", { staticClass: "option" }, [
-                  _vm._v(_vm._s(task.value))
-                ]),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass: "complete",
-                    on: {
-                      click: function($event) {
-                        task.isDone = !task.isDone
-                      }
-                    }
-                  },
-                  [_vm._v("DONE")]
-                )
-              ])
-            : _vm._e()
-        ])
-      })
-    ],
-    2
+      _c(
+        "div",
+        { staticClass: "task-wrapper" },
+        [
+          _c("h3", [_vm._v("Completed Weekly Tasks")]),
+          _vm._v(" "),
+          _vm._l(_vm.tasks, function(task) {
+            return _c("div", { key: task }, [
+              task.isDone && task.weekly
+                ? _c("div", { staticClass: "task" }, [
+                    _c("div", { staticClass: "option" }, [
+                      _vm._v(_vm._s(task.value))
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass: "complete",
+                        on: {
+                          click: function($event) {
+                            task.isDone = !task.isDone
+                          }
+                        }
+                      },
+                      [_vm._v("DONE")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass: "remove",
+                        on: {
+                          click: function($event) {
+                            return _vm.removeTask(_vm.i)
+                          }
+                        }
+                      },
+                      [_vm._v("X")]
+                    )
+                  ])
+                : _vm._e()
+            ])
+          })
+        ],
+        2
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "new-task task-wrapper" }, [
+        _c("h3", [_vm._v("Add a New Task")]),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.input,
+              expression: "input"
+            }
+          ],
+          attrs: { type: "text" },
+          domProps: { value: _vm.input },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.input = $event.target.value
+            }
+          }
+        }),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.daily,
+              expression: "daily"
+            }
+          ],
+          attrs: { type: "checkbox", id: "daily" },
+          domProps: {
+            checked: Array.isArray(_vm.daily)
+              ? _vm._i(_vm.daily, null) > -1
+              : _vm.daily
+          },
+          on: {
+            change: function($event) {
+              var $$a = _vm.daily,
+                $$el = $event.target,
+                $$c = $$el.checked ? true : false
+              if (Array.isArray($$a)) {
+                var $$v = null,
+                  $$i = _vm._i($$a, $$v)
+                if ($$el.checked) {
+                  $$i < 0 && (_vm.daily = $$a.concat([$$v]))
+                } else {
+                  $$i > -1 &&
+                    (_vm.daily = $$a.slice(0, $$i).concat($$a.slice($$i + 1)))
+                }
+              } else {
+                _vm.daily = $$c
+              }
+            }
+          }
+        }),
+        _vm._v(" "),
+        _c("label", { attrs: { for: "daily" } }, [_vm._v("Daily")]),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "complete add-button",
+            on: {
+              click: function($event) {
+                return _vm.addTask(_vm.input, _vm.daily)
+              }
+            }
+          },
+          [_vm._v("ADD")]
+        )
+      ])
+    ]
   )
 }
 var staticRenderFns = []
@@ -13774,6 +14047,17 @@ try {
 
 module.exports = g;
 
+
+/***/ }),
+
+/***/ "./public/jpg/lined-paper.jpg":
+/*!************************************!*\
+  !*** ./public/jpg/lined-paper.jpg ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/lined-paper.jpg?548b65a55ff2edcc075e3e21ac0d901a";
 
 /***/ }),
 

@@ -1,5 +1,10 @@
 <template>
-  <div class="task-list-wrapper">
+  <div
+    class="task-list-wrapper"
+    :style="{
+        'background-image': 'url(' + image + ')',
+      }"
+  >
     <div class="task-wrapper">
       <h3>Daily Tasks</h3>
       <div :key="task" v-for="task in tasks">
@@ -48,7 +53,7 @@
       <input type="text" v-model="input" />
       <input type="checkbox" id="daily" v-model="daily" />
       <label for="daily">Daily</label>
-      <div class="complete" @click="addTask(input, daily)">ADD</div>
+      <div class="complete add-button" @click="addTask(input, daily)">ADD</div>
     </div>
   </div>
 </template>
@@ -64,6 +69,7 @@ export default {
         isDone: false,
         weekly: !daily
       });
+      this.input = "";
     },
     removeTask(i) {
       this.tasks.splice(this.tasks.indexOf(i), 1);
@@ -110,7 +116,8 @@ export default {
         }
       ],
       input: "",
-      daily: true
+      daily: true,
+      image: require("@/../../public/jpg/lined-paper.jpg")
     };
   }
 };
@@ -130,7 +137,9 @@ h3 {
   display: flex;
   flex-direction: row;
   margin: 0 1em;
-  height: 450px;
+  background-position: top center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 .task {
   display: flex;
@@ -151,7 +160,6 @@ h3 {
 }
 .complete {
   margin: auto;
-  margin-top: 0.25em;
   margin-bottom: 0.5em;
   height: 1.5em;
   width: 50px;
@@ -163,6 +171,7 @@ h3 {
 }
 input {
   margin: 0.5em auto;
+  box-shadow: 3px 3px black;
 }
 label {
   margin-bottom: 0.25em;
@@ -174,5 +183,8 @@ label {
   background: red;
   margin: 0 auto;
   cursor: pointer;
+}
+.add-button {
+  margin-top: 0.05em;
 }
 </style>
