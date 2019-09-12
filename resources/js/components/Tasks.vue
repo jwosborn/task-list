@@ -9,9 +9,9 @@
       <h3>Daily Tasks</h3>
       <div :key="task" v-for="task in tasks">
         <div class="task" v-if="!task.isDone && !task.weekly">
+          <div class="remove" @click="removeTask(task)">X</div>
           <div class="option">{{ task.value }}</div>
           <div class="complete" @click="task.isDone = !task.isDone">DONE</div>
-          <div class="remove" @click="removeTask(task)">X</div>
         </div>
       </div>
     </div>
@@ -20,9 +20,9 @@
       <h3>Weekly Tasks</h3>
       <div :key="task" v-for="task in tasks">
         <div class="task" v-if="task.weekly && !task.isDone">
+          <div class="remove" @click="removeTask(task)">X</div>
           <div class="option">{{ task.value }}</div>
           <div class="complete" @click="task.isDone = !task.isDone">DONE</div>
-          <div class="remove" @click="removeTask(task)">X</div>
         </div>
       </div>
     </div>
@@ -31,9 +31,9 @@
       <h3>Completed Daily Tasks</h3>
       <div :key="task" v-for="task in tasks">
         <div class="task" v-if="task.isDone && !task.weekly">
+          <div class="remove" @click="removeTask(task)">X</div>
           <div class="option">{{ task.value }}</div>
           <div class="complete" @click="task.isDone = !task.isDone">DONE</div>
-          <div class="remove" @click="removeTask(task)">X</div>
         </div>
       </div>
     </div>
@@ -42,9 +42,9 @@
       <h3>Completed Weekly Tasks</h3>
       <div :key="task" v-for="task in tasks">
         <div class="task" v-if="task.isDone && task.weekly">
+          <div class="remove" @click="removeTask(i)">X</div>
           <div class="option">{{ task.value }}</div>
           <div class="complete" @click="task.isDone = !task.isDone">DONE</div>
-          <div class="remove" @click="removeTask(i)">X</div>
         </div>
       </div>
     </div>
@@ -152,7 +152,7 @@ h3 {
   border-radius: 12%;
 }
 .option {
-  margin: 7px auto;
+  margin: 0 auto;
   color: #261b18;
 }
 .task-wrapper {
@@ -187,11 +187,15 @@ label {
 }
 .remove {
   color: white;
-  height: 20px;
-  width: 20px;
+  height: 16px;
+  width: 15px;
+  font-size: 15px;
+  font-weight: bold;
   background: #a6958f;
-  margin: 0 auto;
+  margin-left: 134px;
+  margin-top: 2px;
   cursor: pointer;
+  border-radius: 50%;
 }
 .add-button {
   margin-top: 0.05em;
