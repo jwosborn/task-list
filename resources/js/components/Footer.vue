@@ -17,7 +17,7 @@ export default {
   margin: 1.25em auto 3px auto;
   width: 98vw;
   height: 60px;
-  background: #736a62;
+  background: #8c756c;
   color: #f5f5f5;
 }
 span {

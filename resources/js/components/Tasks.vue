@@ -50,7 +50,7 @@
     </div>
     <div class="new-task task-wrapper">
       <h3>Add a New Task</h3>
-      <input type="text" v-model="input" />
+      <input type="text" id="task-input" v-model="input" />
       <input type="checkbox" id="daily" v-model="daily" />
       <label for="daily">Daily</label>
       <div class="complete add-button" @click="addTask(input, daily)">ADD</div>
@@ -127,11 +127,12 @@ export default {
 <style scoped>
 h3 {
   margin: 0 auto 0.75em;
-  background: #bfada3;
+  background: #a6958f;
   color: #f5f5f5;
   width: 12vw;
   height: 55px;
   border-radius: 5%;
+  font-weight: bold;
 }
 .task-list-wrapper {
   display: flex;
@@ -146,13 +147,13 @@ h3 {
   display: flex;
   flex-direction: column;
   margin: 5px auto;
-  background-color: #f2e6d8;
+  background-color: #f2e9e9;
   width: 150px;
   border-radius: 12%;
 }
 .option {
   margin: 7px auto;
-  color: black;
+  color: #261b18;
 }
 .task-wrapper {
   display: flex;
@@ -165,27 +166,30 @@ h3 {
   margin-bottom: 0.5em;
   height: 1.5em;
   width: 50px;
-  background-color: #261d0d;
+  background-color: #261b18;
   color: white;
   cursor: pointer;
   border-radius: 15%;
   box-shadow: 1px 1px 1px #222222;
 }
-input {
+#task-input {
   margin: 0.5em auto;
-  border: 2px solid #bfada3;
-  background: #f2e6d8;
-  color: #2c3e50;
+  border: 2px solid #d9c7c1;
+  background: #f2e9e9;
+  color: #261b18;
   height: 25px;
 }
 label {
+  margin: 0 auto;
   margin-bottom: 0.25em;
+  background: #f2e9e9;
+  width: 45px;
 }
 .remove {
   color: white;
   height: 20px;
   width: 20px;
-  background: #bfada3;
+  background: #a6958f;
   margin: 0 auto;
   cursor: pointer;
 }
