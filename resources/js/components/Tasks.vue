@@ -162,7 +162,7 @@ h3 {
   flex-grow: 1;
 }
 .complete {
-  margin: auto;
+  margin: 0.5em auto;
   margin-bottom: 0.5em;
   height: 1.5em;
   width: 50px;
