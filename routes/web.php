@@ -12,5 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('index');
+   $tasks = \App\Task::all();
+
+    return view('index',['tasks' => $tasks]);
 });
