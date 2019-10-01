@@ -10,7 +10,7 @@
       <div :key="task" v-for="task in tasks">
         <div class="task" v-if="!task.isDone && !task.weekly">
           <div class="remove" @click="removeTask(task)">X</div>
-          <div class="option">{{ task.value }}</div>
+          <div class="option">{{ task.title }}</div>
           <div class="complete" @click="task.isDone = !task.isDone">DONE</div>
         </div>
       </div>
@@ -21,7 +21,7 @@
       <div :key="task" v-for="task in tasks">
         <div class="task" v-if="task.weekly && !task.isDone">
           <div class="remove" @click="removeTask(task)">X</div>
-          <div class="option">{{ task.value }}</div>
+          <div class="option">{{ task.title }}</div>
           <div class="complete" @click="task.isDone = !task.isDone">DONE</div>
         </div>
       </div>
@@ -55,10 +55,12 @@
       <label for="daily">Daily</label>
       <div class="complete add-button" @click="addTask(input, daily)">ADD</div>
     </div>
+    <div class="complete" @click="getTasks()">Get Tasks</div>
   </div>
 </template>
 
 <script>
+import axios from "axios";
 export default {
   name: "Tasks",
   methods: {
@@ -73,48 +75,17 @@ export default {
     },
     removeTask(i) {
       this.tasks.splice(this.tasks.indexOf(i), 1);
+    },
+    getTasks() {
+      axios
+        .get("/tasks")
+        .then(res => (this.tasks = res.data))
+        .catch(e => console.log(e));
     }
   },
   data() {
     return {
-      tasks: [
-        {
-          name: "hebrew-reading",
-          value: "5 Verses of Hebrew",
-          isDone: false,
-          weekly: false
-        },
-        {
-          name: "various-reading",
-          value: "15 Minutes of Various Reading",
-          isDone: false,
-          weekly: false
-        },
-        {
-          name: "budget",
-          value: "All Transactions in EveryDollar",
-          isDone: false,
-          weekly: false
-        },
-        {
-          name: "goetchius",
-          value: "1 Chapter of Goetchius",
-          isDone: false,
-          weekly: true
-        },
-        {
-          name: "convo",
-          value: "1 Intentional Conversation",
-          isDone: false,
-          weekly: true
-        },
-        {
-          name: "dev",
-          value: "12 Hours of Software Development",
-          isDone: false,
-          weekly: true
-        }
-      ],
+      tasks: [],
       input: "",
       daily: true,
       image: require("@/../../public/jpg/light-wood.jpg")
