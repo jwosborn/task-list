@@ -13983,7 +13983,7 @@ __webpack_require__.r(__webpack_exports__);
     getTasks: function getTasks() {
       var _this = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/tasks").then(function (res) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("tasks").then(function (res) {
         return _this.tasks = res.data;
       })["catch"](function (e) {
         return console.log(e);

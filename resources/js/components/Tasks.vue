@@ -78,7 +78,7 @@ export default {
     },
     getTasks() {
       axios
-        .get("/tasks")
+        .get("tasks")
         .then(res => (this.tasks = res.data))
         .catch(e => console.log(e));
     }
