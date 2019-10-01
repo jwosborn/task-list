@@ -15488,7 +15488,7 @@ var render = function() {
           _c("h3", [_vm._v("Completed Daily Tasks")]),
           _vm._v(" "),
           _vm._l(_vm.tasks, function(task) {
-            return _c("div", { key: task }, [
+            return _c("div", { key: task.id }, [
               task.isDone && !task.weekly
                 ? _c("div", { staticClass: "task" }, [
                     _c(

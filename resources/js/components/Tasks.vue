@@ -29,7 +29,7 @@
 
     <div class="task-wrapper">
       <h3>Completed Daily Tasks</h3>
-      <div :key="task" v-for="task in tasks">
+      <div :key="task.id" v-for="task in tasks">
         <div class="task" v-if="task.isDone && !task.weekly">
           <div class="remove" @click="removeTask(task)">X</div>
           <div class="option">{{ task.value }}</div>
