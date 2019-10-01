@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-   $tasks = \App\Task::all();
-
-    return view('index',['tasks' => $tasks]);
+    return view('index');
 });
+
+Route::get('/tasks', 'TasksController');
