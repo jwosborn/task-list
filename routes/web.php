@@ -15,5 +15,4 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('tasks', 'TasksController@get');
-Route::post('tasks','TasksController@store');
+Route::get('/tasks', 'TasksController@get');

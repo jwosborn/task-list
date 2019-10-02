@@ -16,10 +16,11 @@ class TasksController extends Controller
     }
 
     public function store(Request $request) {
-        $task = new App/Task ();
+        $task = new \App\Task();
         $task->title=$request->title;
         $task->weekly=$request->weekly;
+        $task->isDone=0;
         $task->save();
-        return $task; 
+        return response()->json($task); 
     }
 }

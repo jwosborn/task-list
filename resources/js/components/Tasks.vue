@@ -73,11 +73,11 @@ export default {
     //   this.input = "";
     // },
     addTask() {
-      axios.post("tasks", { title: this.input, weekly: !this.daily }).then(
+      axios.post("/api/tasks", { title: this.input, weekly: !this.daily }).then(
         res =>
           this.tasks.push({
             title: res.title,
-            isDone: false,
+            isDone: 0,
             weekly: !res.daily
           }),
         (this.input = "")
@@ -98,7 +98,7 @@ export default {
 
   created() {
     axios
-      .get("tasks")
+      .get("/tasks")
       .then(res => (this.tasks = res.data))
       .catch(e => console.log(e));
   }

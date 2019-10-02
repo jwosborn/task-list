@@ -13979,13 +13979,13 @@ __webpack_require__.r(__webpack_exports__);
     addTask: function addTask() {
       var _this = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post("tasks", {
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post("/api/tasks", {
         title: this.input,
         weekly: !this.daily
       }).then(function (res) {
         return _this.tasks.push({
           title: res.title,
-          isDone: false,
+          isDone: 0,
           weekly: !res.daily
         });
       }, this.input = "");
@@ -14005,7 +14005,7 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     var _this2 = this;
 
-    axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("tasks").then(function (res) {
+    axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/tasks").then(function (res) {
       return _this2.tasks = res.data;
     })["catch"](function (e) {
       return console.log(e);
