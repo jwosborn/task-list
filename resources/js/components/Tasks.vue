@@ -72,7 +72,7 @@ export default {
     //   });
     //   this.input = "";
     // },
-    addTask(input, daily) {
+    addTask() {
       axios.post("tasks", { title: this.input, weekly: !this.daily }).then(
         res =>
           this.tasks.push({

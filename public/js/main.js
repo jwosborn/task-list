@@ -13976,7 +13976,7 @@ __webpack_require__.r(__webpack_exports__);
     //   });
     //   this.input = "";
     // },
-    addTask: function addTask(input, daily) {
+    addTask: function addTask() {
       var _this = this;
 
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.post("tasks", {
