@@ -13963,31 +13963,35 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Tasks",
   methods: {
+    // addTask(input, daily) {
+    //   this.tasks.push({
+    //     name: input,
+    //     value: input,
+    //     isDone: false,
+    //     weekly: !daily
+    //   });
+    //   this.input = "";
+    // },
     addTask: function addTask(input, daily) {
-      this.tasks.push({
-        name: input,
-        value: input,
-        isDone: false,
-        weekly: !daily
-      });
-      this.input = "";
+      var _this = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post("tasks", {
+        title: this.input,
+        weekly: !this.daily
+      }).then(function (res) {
+        return _this.tasks.push({
+          title: res.title,
+          isDone: false,
+          weekly: !res.daily
+        });
+      }, this.input = "");
     },
     removeTask: function removeTask(i) {
       this.tasks.splice(this.tasks.indexOf(i), 1);
-    },
-    getTasks: function getTasks() {
-      var _this = this;
-
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("tasks").then(function (res) {
-        return _this.tasks = res.data;
-      })["catch"](function (e) {
-        return console.log(e);
-      });
     }
   },
   data: function data() {
@@ -13997,6 +14001,15 @@ __webpack_require__.r(__webpack_exports__);
       daily: true,
       image: __webpack_require__(/*! @/../../public/jpg/light-wood.jpg */ "./public/jpg/light-wood.jpg")
     };
+  },
+  created: function created() {
+    var _this2 = this;
+
+    axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("tasks").then(function (res) {
+      return _this2.tasks = res.data;
+    })["catch"](function (e) {
+      return console.log(e);
+    });
   }
 });
 
@@ -15394,7 +15407,7 @@ var render = function() {
           _c("h3", [_vm._v("Daily Tasks")]),
           _vm._v(" "),
           _vm._l(_vm.tasks, function(task) {
-            return _c("div", { key: task }, [
+            return _c("div", { key: task.id }, [
               !task.isDone && !task.weekly
                 ? _c("div", { staticClass: "task" }, [
                     _c(
@@ -15441,7 +15454,7 @@ var render = function() {
           _c("h3", [_vm._v("Weekly Tasks")]),
           _vm._v(" "),
           _vm._l(_vm.tasks, function(task) {
-            return _c("div", { key: task }, [
+            return _c("div", { key: task.id }, [
               task.weekly && !task.isDone
                 ? _c("div", { staticClass: "task" }, [
                     _c(
@@ -15535,7 +15548,7 @@ var render = function() {
           _c("h3", [_vm._v("Completed Weekly Tasks")]),
           _vm._v(" "),
           _vm._l(_vm.tasks, function(task) {
-            return _c("div", { key: task }, [
+            return _c("div", { key: task.id }, [
               task.isDone && task.weekly
                 ? _c("div", { staticClass: "task" }, [
                     _c(
@@ -15649,20 +15662,7 @@ var render = function() {
           },
           [_vm._v("ADD")]
         )
-      ]),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          staticClass: "complete",
-          on: {
-            click: function($event) {
-              return _vm.getTasks()
-            }
-          }
-        },
-        [_vm._v("Get Tasks")]
-      )
+      ])
     ]
   )
 }

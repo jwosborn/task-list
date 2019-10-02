@@ -16,3 +16,4 @@ Route::get('/', function () {
 });
 
 Route::get('tasks', 'TasksController@get');
+Route::post('tasks','TasksController@store');

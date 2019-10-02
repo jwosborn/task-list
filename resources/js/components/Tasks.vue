@@ -7,7 +7,7 @@
   >
     <div class="task-wrapper">
       <h3>Daily Tasks</h3>
-      <div :key="task" v-for="task in tasks">
+      <div :key="task.id" v-for="task in tasks">
         <div class="task" v-if="!task.isDone && !task.weekly">
           <div class="remove" @click="removeTask(task)">X</div>
           <div class="option">{{ task.title }}</div>
@@ -18,7 +18,7 @@
 
     <div class="task-wrapper">
       <h3>Weekly Tasks</h3>
-      <div :key="task" v-for="task in tasks">
+      <div :key="task.id" v-for="task in tasks">
         <div class="task" v-if="task.weekly && !task.isDone">
           <div class="remove" @click="removeTask(task)">X</div>
           <div class="option">{{ task.title }}</div>
@@ -40,7 +40,7 @@
 
     <div class="task-wrapper">
       <h3>Completed Weekly Tasks</h3>
-      <div :key="task" v-for="task in tasks">
+      <div :key="task.id" v-for="task in tasks">
         <div class="task" v-if="task.isDone && task.weekly">
           <div class="remove" @click="removeTask(i)">X</div>
           <div class="option">{{ task.value }}</div>
@@ -55,7 +55,6 @@
       <label for="daily">Daily</label>
       <div class="complete add-button" @click="addTask(input, daily)">ADD</div>
     </div>
-    <div class="complete" @click="getTasks()">Get Tasks</div>
   </div>
 </template>
 
@@ -64,32 +63,44 @@ import axios from "axios";
 export default {
   name: "Tasks",
   methods: {
+    // addTask(input, daily) {
+    //   this.tasks.push({
+    //     name: input,
+    //     value: input,
+    //     isDone: false,
+    //     weekly: !daily
+    //   });
+    //   this.input = "";
+    // },
     addTask(input, daily) {
-      this.tasks.push({
-        name: input,
-        value: input,
-        isDone: false,
-        weekly: !daily
-      });
-      this.input = "";
+      axios.post("tasks", { title: this.input, weekly: !this.daily }).then(
+        res =>
+          this.tasks.push({
+            title: res.title,
+            isDone: false,
+            weekly: !res.daily
+          }),
+        (this.input = "")
+      );
     },
     removeTask(i) {
       this.tasks.splice(this.tasks.indexOf(i), 1);
-    },
-    getTasks() {
-      axios
-        .get("tasks")
-        .then(res => (this.tasks = res.data))
-        .catch(e => console.log(e));
     }
   },
-  data() {
+  data: function() {
     return {
       tasks: [],
       input: "",
       daily: true,
       image: require("@/../../public/jpg/light-wood.jpg")
     };
+  },
+
+  created() {
+    axios
+      .get("tasks")
+      .then(res => (this.tasks = res.data))
+      .catch(e => console.log(e));
   }
 };
 </script>
