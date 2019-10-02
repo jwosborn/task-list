@@ -15,7 +15,7 @@ class TasksController extends Controller
         return $tasks;
     }
 
-    public function store(Request $task) {
+    public function store(Request $request) {
         $task = new App/Task ();
         $task->title=$request->title;
         $task->weekly=$request->weekly;
