@@ -22,4 +22,9 @@ class TasksController extends Controller
         $task->save();
         return \App\Task::all(); 
     }
+
+    public function delete($id) {
+        \App\Task::destroy($id);
+        return \App\Task::all(); 
+    }
 }

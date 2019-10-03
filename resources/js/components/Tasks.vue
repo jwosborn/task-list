@@ -77,8 +77,10 @@ export default {
         .post("/api/tasks", { title: this.input, weekly: !this.daily })
         .then(res => ((this.tasks = res.data), (this.input = "")));
     },
-    removeTask(i) {
-      this.tasks.splice(this.tasks.indexOf(i), 1);
+    removeTask(task) {
+      axios
+        .delete(`/api/tasks/${task.id}`)
+        .then(res => (this.tasks = res.data));
     }
   },
   data: function() {

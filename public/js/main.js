@@ -13986,8 +13986,12 @@ __webpack_require__.r(__webpack_exports__);
         return _this.tasks = res.data, _this.input = "";
       });
     },
-    removeTask: function removeTask(i) {
-      this.tasks.splice(this.tasks.indexOf(i), 1);
+    removeTask: function removeTask(task) {
+      var _this2 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a["delete"]("/api/tasks/".concat(task.id)).then(function (res) {
+        return _this2.tasks = res.data;
+      });
     }
   },
   data: function data() {
@@ -13999,10 +14003,10 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   created: function created() {
-    var _this2 = this;
+    var _this3 = this;
 
     axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/tasks").then(function (res) {
-      return _this2.tasks = res.data;
+      return _this3.tasks = res.data;
     })["catch"](function (e) {
       return console.log(e);
     });
