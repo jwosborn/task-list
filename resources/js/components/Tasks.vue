@@ -92,7 +92,7 @@ export default {
 
   created() {
     axios
-      .get("/tasks")
+      .get("/api/tasks")
       .then(res => (this.tasks = res.data))
       .catch(e => console.log(e));
   }
@@ -175,5 +175,8 @@ label {
 }
 .add-button {
   margin-top: 0.05em;
+}
+#daily {
+  margin: 1em auto;
 }
 </style>
