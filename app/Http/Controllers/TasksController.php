@@ -21,6 +21,6 @@ class TasksController extends Controller
         $task->weekly=$request->weekly;
         $task->isDone=0;
         $task->save();
-        return response()->json($task); 
+        return \App\Task::all(); 
     }
 }

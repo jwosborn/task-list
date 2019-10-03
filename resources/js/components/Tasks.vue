@@ -73,15 +73,9 @@ export default {
     //   this.input = "";
     // },
     addTask() {
-      axios.post("/api/tasks", { title: this.input, weekly: !this.daily }).then(
-        res =>
-          this.tasks.push({
-            title: res.title,
-            isDone: 0,
-            weekly: !res.daily
-          }),
-        (this.input = "")
-      );
+      axios
+        .post("/api/tasks", { title: this.input, weekly: !this.daily })
+        .then(res => ((this.tasks = res.data), (this.input = "")));
     },
     removeTask(i) {
       this.tasks.splice(this.tasks.indexOf(i), 1);

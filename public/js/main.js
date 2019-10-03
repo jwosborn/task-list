@@ -13983,12 +13983,8 @@ __webpack_require__.r(__webpack_exports__);
         title: this.input,
         weekly: !this.daily
       }).then(function (res) {
-        return _this.tasks.push({
-          title: res.title,
-          isDone: 0,
-          weekly: !res.daily
-        });
-      }, this.input = "");
+        return _this.tasks = res.data, _this.input = "";
+      });
     },
     removeTask: function removeTask(i) {
       this.tasks.splice(this.tasks.indexOf(i), 1);
