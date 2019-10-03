@@ -11,8 +11,7 @@ class TasksController extends Controller
     }
 
     public function get() {
-        $tasks = \App\Task::all();
-        return $tasks;
+        return \App\Task::all();
     }
 
     public function store(Request $request) {
