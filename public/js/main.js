@@ -13967,19 +13967,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Tasks",
   methods: {
-    // addTask(input, daily) {
-    //   this.tasks.push({
-    //     name: input,
-    //     value: input,
-    //     isDone: false,
-    //     weekly: !daily
-    //   });
-    //   this.input = "";
-    // },
     addTask: function addTask() {
       var _this = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post("/api/tasks", {
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post("/api/tasks/", {
         title: this.input,
         weekly: !this.daily
       }).then(function (res) {
@@ -14005,7 +13996,7 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     var _this3 = this;
 
-    axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/tasks").then(function (res) {
+    axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/tasks/").then(function (res) {
       return _this3.tasks = res.data;
     })["catch"](function (e) {
       return console.log(e);
@@ -15518,7 +15509,7 @@ var render = function() {
                     ),
                     _vm._v(" "),
                     _c("div", { staticClass: "option" }, [
-                      _vm._v(_vm._s(task.value))
+                      _vm._v(_vm._s(task.title))
                     ]),
                     _vm._v(" "),
                     _c(
@@ -15565,7 +15556,7 @@ var render = function() {
                     ),
                     _vm._v(" "),
                     _c("div", { staticClass: "option" }, [
-                      _vm._v(_vm._s(task.value))
+                      _vm._v(_vm._s(task.title))
                     ]),
                     _vm._v(" "),
                     _c(

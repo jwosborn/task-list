@@ -32,7 +32,7 @@
       <div :key="task.id" v-for="task in tasks">
         <div class="task" v-if="task.isDone && !task.weekly">
           <div class="remove" @click="removeTask(task)">X</div>
-          <div class="option">{{ task.value }}</div>
+          <div class="option">{{ task.title }}</div>
           <div class="complete" @click="task.isDone = !task.isDone">DONE</div>
         </div>
       </div>
@@ -43,7 +43,7 @@
       <div :key="task.id" v-for="task in tasks">
         <div class="task" v-if="task.isDone && task.weekly">
           <div class="remove" @click="removeTask(i)">X</div>
-          <div class="option">{{ task.value }}</div>
+          <div class="option">{{ task.title }}</div>
           <div class="complete" @click="task.isDone = !task.isDone">DONE</div>
         </div>
       </div>
@@ -63,18 +63,9 @@ import axios from "axios";
 export default {
   name: "Tasks",
   methods: {
-    // addTask(input, daily) {
-    //   this.tasks.push({
-    //     name: input,
-    //     value: input,
-    //     isDone: false,
-    //     weekly: !daily
-    //   });
-    //   this.input = "";
-    // },
     addTask() {
       axios
-        .post("/api/tasks", { title: this.input, weekly: !this.daily })
+        .post("/api/tasks/", { title: this.input, weekly: !this.daily })
         .then(res => ((this.tasks = res.data), (this.input = "")));
     },
     removeTask(task) {
@@ -94,7 +85,7 @@ export default {
 
   created() {
     axios
-      .get("/api/tasks")
+      .get("/api/tasks/")
       .then(res => (this.tasks = res.data))
       .catch(e => console.log(e));
   }
