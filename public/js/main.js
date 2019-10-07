@@ -15594,6 +15594,15 @@ var render = function() {
           attrs: { type: "text", id: "task-input" },
           domProps: { value: _vm.input },
           on: {
+            keyup: function($event) {
+              if (
+                !$event.type.indexOf("key") &&
+                _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
+              ) {
+                return null
+              }
+              return _vm.addTask(_vm.input, _vm.daily)
+            },
             input: function($event) {
               if ($event.target.composing) {
                 return

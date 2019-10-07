@@ -50,7 +50,7 @@
     </div>
     <div class="new-task task-wrapper">
       <h3>Add a New Task</h3>
-      <input type="text" id="task-input" v-model="input" />
+      <input type="text" id="task-input" @keyup.enter="addTask(input,daily)" v-model="input" />
       <input type="checkbox" id="daily" v-model="daily" />
       <label for="daily">Daily</label>
       <div class="complete add-button" @click="addTask(input, daily)">ADD</div>
