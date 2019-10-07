@@ -13963,6 +13963,30 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Tasks",
@@ -13983,6 +14007,13 @@ __webpack_require__.r(__webpack_exports__);
       axios__WEBPACK_IMPORTED_MODULE_0___default.a["delete"]("/api/tasks/".concat(task.id)).then(function (res) {
         return _this2.tasks = res.data;
       });
+    },
+    updateTask: function updateTask(task) {
+      var _this3 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.patch("/api/tasks/".concat(task.id), task).then(function (res) {
+        return _this3.tasks = res.data;
+      });
     }
   },
   data: function data() {
@@ -13994,10 +14025,10 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   created: function created() {
-    var _this3 = this;
+    var _this4 = this;
 
     axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/tasks/").then(function (res) {
-      return _this3.tasks = res.data;
+      return _this4.tasks = res.data;
     })["catch"](function (e) {
       return console.log(e);
     });
@@ -15414,9 +15445,60 @@ var render = function() {
                       [_vm._v("X")]
                     ),
                     _vm._v(" "),
-                    _c("div", { staticClass: "option" }, [
-                      _vm._v(_vm._s(task.title))
-                    ]),
+                    task.edit === 0
+                      ? _c(
+                          "div",
+                          {
+                            staticClass: "option",
+                            on: {
+                              dblclick: function($event) {
+                                task.edit = 1
+                              }
+                            }
+                          },
+                          [_vm._v(_vm._s(task.title))]
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    task.edit === 1
+                      ? _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: task.title,
+                              expression: "task.title"
+                            }
+                          ],
+                          domProps: { value: task.title },
+                          on: {
+                            keyup: function($event) {
+                              if (
+                                !$event.type.indexOf("key") &&
+                                _vm._k(
+                                  $event.keyCode,
+                                  "enter",
+                                  13,
+                                  $event.key,
+                                  "Enter"
+                                )
+                              ) {
+                                return null
+                              }
+                              return _vm.updateTask(task)
+                            },
+                            blur: function($event) {
+                              return _vm.updateTask(task)
+                            },
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(task, "title", $event.target.value)
+                            }
+                          }
+                        })
+                      : _vm._e(),
                     _vm._v(" "),
                     _c(
                       "div",
@@ -15461,9 +15543,60 @@ var render = function() {
                       [_vm._v("X")]
                     ),
                     _vm._v(" "),
-                    _c("div", { staticClass: "option" }, [
-                      _vm._v(_vm._s(task.title))
-                    ]),
+                    task.edit === 0
+                      ? _c(
+                          "div",
+                          {
+                            staticClass: "option",
+                            on: {
+                              dblclick: function($event) {
+                                task.edit = 1
+                              }
+                            }
+                          },
+                          [_vm._v(_vm._s(task.title))]
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    task.edit === 1
+                      ? _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: task.title,
+                              expression: "task.title"
+                            }
+                          ],
+                          domProps: { value: task.title },
+                          on: {
+                            keyup: function($event) {
+                              if (
+                                !$event.type.indexOf("key") &&
+                                _vm._k(
+                                  $event.keyCode,
+                                  "enter",
+                                  13,
+                                  $event.key,
+                                  "Enter"
+                                )
+                              ) {
+                                return null
+                              }
+                              return _vm.updateTask(task)
+                            },
+                            blur: function($event) {
+                              return _vm.updateTask(task)
+                            },
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(task, "title", $event.target.value)
+                            }
+                          }
+                        })
+                      : _vm._e(),
                     _vm._v(" "),
                     _c(
                       "div",
@@ -15508,9 +15641,60 @@ var render = function() {
                       [_vm._v("X")]
                     ),
                     _vm._v(" "),
-                    _c("div", { staticClass: "option" }, [
-                      _vm._v(_vm._s(task.title))
-                    ]),
+                    task.edit === 0
+                      ? _c(
+                          "div",
+                          {
+                            staticClass: "option",
+                            on: {
+                              dblclick: function($event) {
+                                task.edit = 1
+                              }
+                            }
+                          },
+                          [_vm._v(_vm._s(task.title))]
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    task.edit === 1
+                      ? _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: task.title,
+                              expression: "task.title"
+                            }
+                          ],
+                          domProps: { value: task.title },
+                          on: {
+                            keyup: function($event) {
+                              if (
+                                !$event.type.indexOf("key") &&
+                                _vm._k(
+                                  $event.keyCode,
+                                  "enter",
+                                  13,
+                                  $event.key,
+                                  "Enter"
+                                )
+                              ) {
+                                return null
+                              }
+                              return _vm.updateTask(task)
+                            },
+                            blur: function($event) {
+                              return _vm.updateTask(task)
+                            },
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(task, "title", $event.target.value)
+                            }
+                          }
+                        })
+                      : _vm._e(),
                     _vm._v(" "),
                     _c(
                       "div",
@@ -15548,16 +15732,67 @@ var render = function() {
                         staticClass: "remove",
                         on: {
                           click: function($event) {
-                            return _vm.removeTask(_vm.i)
+                            return _vm.removeTask(task)
                           }
                         }
                       },
                       [_vm._v("X")]
                     ),
                     _vm._v(" "),
-                    _c("div", { staticClass: "option" }, [
-                      _vm._v(_vm._s(task.title))
-                    ]),
+                    task.edit === 0
+                      ? _c(
+                          "div",
+                          {
+                            staticClass: "option",
+                            on: {
+                              dblclick: function($event) {
+                                task.edit = 1
+                              }
+                            }
+                          },
+                          [_vm._v(_vm._s(task.title))]
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    task.edit === 1
+                      ? _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: task.title,
+                              expression: "task.title"
+                            }
+                          ],
+                          domProps: { value: task.title },
+                          on: {
+                            keyup: function($event) {
+                              if (
+                                !$event.type.indexOf("key") &&
+                                _vm._k(
+                                  $event.keyCode,
+                                  "enter",
+                                  13,
+                                  $event.key,
+                                  "Enter"
+                                )
+                              ) {
+                                return null
+                              }
+                              return _vm.updateTask(task)
+                            },
+                            blur: function($event) {
+                              return _vm.updateTask(task)
+                            },
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(task, "title", $event.target.value)
+                            }
+                          }
+                        })
+                      : _vm._e(),
                     _vm._v(" "),
                     _c(
                       "div",

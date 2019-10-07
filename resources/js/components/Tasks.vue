@@ -10,7 +10,13 @@
       <div :key="task.id" v-for="task in tasks">
         <div class="task" v-if="!task.isDone && !task.weekly">
           <div class="remove" @click="removeTask(task)">X</div>
-          <div class="option">{{ task.title }}</div>
+          <div class="option" @dblclick="task.edit = 1" v-if="task.edit === 0">{{ task.title }}</div>
+          <input
+            v-if="task.edit === 1"
+            v-model="task.title"
+            @keyup.enter="updateTask(task)"
+            v-on:blur="updateTask(task)"
+          />
           <div class="complete" @click="task.isDone = !task.isDone">DONE</div>
         </div>
       </div>
@@ -21,7 +27,13 @@
       <div :key="task.id" v-for="task in tasks">
         <div class="task" v-if="task.weekly && !task.isDone">
           <div class="remove" @click="removeTask(task)">X</div>
-          <div class="option">{{ task.title }}</div>
+          <div class="option" @dblclick="task.edit = 1" v-if="task.edit === 0">{{ task.title }}</div>
+          <input
+            v-if="task.edit === 1"
+            v-model="task.title"
+            @keyup.enter="updateTask(task)"
+            v-on:blur="updateTask(task)"
+          />
           <div class="complete" @click="task.isDone = !task.isDone">DONE</div>
         </div>
       </div>
@@ -32,7 +44,13 @@
       <div :key="task.id" v-for="task in tasks">
         <div class="task" v-if="task.isDone && !task.weekly">
           <div class="remove" @click="removeTask(task)">X</div>
-          <div class="option">{{ task.title }}</div>
+          <div class="option" @dblclick="task.edit = 1" v-if="task.edit === 0">{{ task.title }}</div>
+          <input
+            v-if="task.edit === 1"
+            v-model="task.title"
+            @keyup.enter="updateTask(task)"
+            v-on:blur="updateTask(task)"
+          />
           <div class="complete" @click="task.isDone = !task.isDone">DONE</div>
         </div>
       </div>
@@ -42,8 +60,14 @@
       <h3>Completed Weekly Tasks</h3>
       <div :key="task.id" v-for="task in tasks">
         <div class="task" v-if="task.isDone && task.weekly">
-          <div class="remove" @click="removeTask(i)">X</div>
-          <div class="option">{{ task.title }}</div>
+          <div class="remove" @click="removeTask(task)">X</div>
+          <div class="option" @dblclick="task.edit = 1" v-if="task.edit === 0">{{ task.title }}</div>
+          <input
+            v-if="task.edit === 1"
+            v-model="task.title"
+            @keyup.enter="updateTask(task)"
+            v-on:blur="updateTask(task)"
+          />
           <div class="complete" @click="task.isDone = !task.isDone">DONE</div>
         </div>
       </div>
@@ -71,6 +95,11 @@ export default {
     removeTask(task) {
       axios
         .delete(`/api/tasks/${task.id}`)
+        .then(res => (this.tasks = res.data));
+    },
+    updateTask(task) {
+      axios
+        .patch(`/api/tasks/${task.id}`, task)
         .then(res => (this.tasks = res.data));
     }
   },

@@ -40,6 +40,7 @@ class TasksController extends Controller
         $task->title=$request->title;
         $task->weekly=$request->weekly;
         $task->isDone=0;
+        $task->edit=0;
         $task->save();
         return \App\Task::all(); 
     }
@@ -75,7 +76,13 @@ class TasksController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $task = \App\Task::findOrFail($id);
+        $task->title=$request->title;
+        $task->weekly=$request->weekly;
+        $task->isDone=$request->isDone;
+        $task->edit=0;
+        $task->save();
+        return \App\Task::all();
     }
 
     /**
