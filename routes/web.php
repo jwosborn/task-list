@@ -14,4 +14,7 @@
 Route::get('/', function () {
     return view('index');
 });
-
+Route::get('/login', 'LoginController1@index');
+Route::post('/login', 'LoginController1@login');
+Route::get('/register', 'NewUserController@index');
+Route::post('/register', 'NewUserController@create');
