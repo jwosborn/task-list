@@ -118,10 +118,12 @@ export default {
       .get("/api/tasks/")
       .then(res => (this.tasks = res.data))
       .catch(e => console.log(e));
-    axios
-      .get("api/login")
-      .then(res => (this.user = res.data))
-      .catch(e => console.log(e));
+
+    //need route to populate user from session.
+    // axios
+    //   .get("/login")
+    //   .then(res => (this.user = res.data))
+    //   .catch(e => console.log(e));
   }
 };
 </script>

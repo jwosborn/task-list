@@ -14036,12 +14036,11 @@ __webpack_require__.r(__webpack_exports__);
       return _this4.tasks = res.data;
     })["catch"](function (e) {
       return console.log(e);
-    });
-    axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("api/login").then(function (res) {
-      return _this4.user = res.data;
-    })["catch"](function (e) {
-      return console.log(e);
-    });
+    }); //need route to populate user from session.
+    // axios
+    //   .get("/login")
+    //   .then(res => (this.user = res.data))
+    //   .catch(e => console.log(e));
   }
 });
 
