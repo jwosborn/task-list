@@ -7,10 +7,16 @@
   >
     <div class="task-wrapper">
       <h3>Daily Tasks</h3>
-      <div :key="task" v-for="task in tasks">
+      <div :key="task.id" v-for="task in tasks">
         <div class="task" v-if="!task.isDone && !task.weekly">
           <div class="remove" @click="removeTask(task)">X</div>
-          <div class="option">{{ task.value }}</div>
+          <div class="option" @dblclick="task.edit = 1" v-if="task.edit === 0">{{ task.title }}</div>
+          <input
+            v-if="task.edit === 1"
+            v-model="task.title"
+            @keyup.enter="updateTask(task)"
+            v-on:blur="updateTask(task)"
+          />
           <div class="complete" @click="task.isDone = !task.isDone">DONE</div>
         </div>
       </div>
@@ -18,10 +24,16 @@
 
     <div class="task-wrapper">
       <h3>Weekly Tasks</h3>
-      <div :key="task" v-for="task in tasks">
+      <div :key="task.id" v-for="task in tasks">
         <div class="task" v-if="task.weekly && !task.isDone">
           <div class="remove" @click="removeTask(task)">X</div>
-          <div class="option">{{ task.value }}</div>
+          <div class="option" @dblclick="task.edit = 1" v-if="task.edit === 0">{{ task.title }}</div>
+          <input
+            v-if="task.edit === 1"
+            v-model="task.title"
+            @keyup.enter="updateTask(task)"
+            v-on:blur="updateTask(task)"
+          />
           <div class="complete" @click="task.isDone = !task.isDone">DONE</div>
         </div>
       </div>
@@ -29,10 +41,16 @@
 
     <div class="task-wrapper">
       <h3>Completed Daily Tasks</h3>
-      <div :key="task" v-for="task in tasks">
+      <div :key="task.id" v-for="task in tasks">
         <div class="task" v-if="task.isDone && !task.weekly">
           <div class="remove" @click="removeTask(task)">X</div>
-          <div class="option">{{ task.value }}</div>
+          <div class="option" @dblclick="task.edit = 1" v-if="task.edit === 0">{{ task.title }}</div>
+          <input
+            v-if="task.edit === 1"
+            v-model="task.title"
+            @keyup.enter="updateTask(task)"
+            v-on:blur="updateTask(task)"
+          />
           <div class="complete" @click="task.isDone = !task.isDone">DONE</div>
         </div>
       </div>
@@ -40,17 +58,23 @@
 
     <div class="task-wrapper">
       <h3>Completed Weekly Tasks</h3>
-      <div :key="task" v-for="task in tasks">
+      <div :key="task.id" v-for="task in tasks">
         <div class="task" v-if="task.isDone && task.weekly">
-          <div class="remove" @click="removeTask(i)">X</div>
-          <div class="option">{{ task.value }}</div>
+          <div class="remove" @click="removeTask(task)">X</div>
+          <div class="option" @dblclick="task.edit = 1" v-if="task.edit === 0">{{ task.title }}</div>
+          <input
+            v-if="task.edit === 1"
+            v-model="task.title"
+            @keyup.enter="updateTask(task)"
+            v-on:blur="updateTask(task)"
+          />
           <div class="complete" @click="task.isDone = !task.isDone">DONE</div>
         </div>
       </div>
     </div>
     <div class="new-task task-wrapper">
       <h3>Add a New Task</h3>
-      <input type="text" id="task-input" v-model="input" />
+      <input type="text" id="task-input" @keyup.enter="addTask(input,daily)" v-model="input" />
       <input type="checkbox" id="daily" v-model="daily" />
       <label for="daily">Daily</label>
       <div class="complete add-button" @click="addTask(input, daily)">ADD</div>
@@ -59,66 +83,40 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
   name: "Tasks",
   methods: {
-    addTask(input, daily) {
-      this.tasks.push({
-        name: input,
-        value: input,
-        isDone: false,
-        weekly: !daily
-      });
-      this.input = "";
+    addTask() {
+      axios
+        .post("/api/tasks/", { title: this.input, weekly: !this.daily })
+        .then(res => ((this.tasks = res.data), (this.input = "")));
     },
-    removeTask(i) {
-      this.tasks.splice(this.tasks.indexOf(i), 1);
+    removeTask(task) {
+      axios
+        .delete(`/api/tasks/${task.id}`)
+        .then(res => (this.tasks = res.data));
+    },
+    updateTask(task) {
+      axios
+        .patch(`/api/tasks/${task.id}`, task)
+        .then(res => (this.tasks = res.data));
     }
   },
-  data() {
+  data: function() {
     return {
-      tasks: [
-        {
-          name: "hebrew-reading",
-          value: "5 Verses of Hebrew",
-          isDone: false,
-          weekly: false
-        },
-        {
-          name: "various-reading",
-          value: "15 Minutes of Various Reading",
-          isDone: false,
-          weekly: false
-        },
-        {
-          name: "budget",
-          value: "All Transactions in EveryDollar",
-          isDone: false,
-          weekly: false
-        },
-        {
-          name: "goetchius",
-          value: "1 Chapter of Goetchius",
-          isDone: false,
-          weekly: true
-        },
-        {
-          name: "convo",
-          value: "1 Intentional Conversation",
-          isDone: false,
-          weekly: true
-        },
-        {
-          name: "dev",
-          value: "12 Hours of Software Development",
-          isDone: false,
-          weekly: true
-        }
-      ],
+      tasks: [],
       input: "",
       daily: true,
       image: require("@/../../public/jpg/light-wood.jpg")
     };
+  },
+
+  created() {
+    axios
+      .get("/api/tasks/")
+      .then(res => (this.tasks = res.data))
+      .catch(e => console.log(e));
   }
 };
 </script>
@@ -199,5 +197,8 @@ label {
 }
 .add-button {
   margin-top: 0.05em;
+}
+#daily {
+  margin: 1em auto;
 }
 </style>
