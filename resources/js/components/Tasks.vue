@@ -108,7 +108,8 @@ export default {
       tasks: [],
       input: "",
       daily: true,
-      image: require("@/../../public/jpg/light-wood.jpg")
+      image: require("@/../../public/jpg/light-wood.jpg"),
+      user: {}
     };
   },
 
@@ -116,6 +117,10 @@ export default {
     axios
       .get("/api/tasks/")
       .then(res => (this.tasks = res.data))
+      .catch(e => console.log(e));
+    axios
+      .get("api/login")
+      .then(res => (this.user = res.data))
       .catch(e => console.log(e));
   }
 };

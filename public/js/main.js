@@ -14025,7 +14025,8 @@ __webpack_require__.r(__webpack_exports__);
       tasks: [],
       input: "",
       daily: true,
-      image: __webpack_require__(/*! @/../../public/jpg/light-wood.jpg */ "./public/jpg/light-wood.jpg")
+      image: __webpack_require__(/*! @/../../public/jpg/light-wood.jpg */ "./public/jpg/light-wood.jpg"),
+      user: {}
     };
   },
   created: function created() {
@@ -14033,6 +14034,11 @@ __webpack_require__.r(__webpack_exports__);
 
     axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/tasks/").then(function (res) {
       return _this4.tasks = res.data;
+    })["catch"](function (e) {
+      return console.log(e);
+    });
+    axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("api/login").then(function (res) {
+      return _this4.user = res.data;
     })["catch"](function (e) {
       return console.log(e);
     });
