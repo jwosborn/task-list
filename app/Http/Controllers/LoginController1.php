@@ -7,11 +7,13 @@ use Illuminate\Support\Facades\Hash;
 
 class LoginController1 extends Controller
 {
-   public function index() {
+   public function index() 
+   {
     return view('login');
    }
 
-   public function login(Request $request ){
+   public function login(Request $request )
+   {
     $this->validate(request(),[
         'username' => 'required|e-mail',
         'password' => 'required|min:2'
