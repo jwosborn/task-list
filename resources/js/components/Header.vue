@@ -1,9 +1,12 @@
 <template>
   <div class="header-wrapper">
     <h1>TO-DO LIST</h1>
-    <div>
+    <div class="login-wrapper">
       <a href="/login">Login</a>
-      <a href="/register">New User? Create an account!</a>
+      <a href="/register">
+        New User?
+        <br />Create an account!
+      </a>
     </div>
   </div>
 </template>
@@ -22,5 +25,15 @@ h1 {
   display: flex;
   background: #8c756c;
   color: white;
+}
+
+.login-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  color: white;
+  margin: 0.5em auto;
 }
 </style>

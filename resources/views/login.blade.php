@@ -1,24 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Login</title>
+  <title>Task List</title>
 </head>
 
 <body>
-<header>
-    <h1>Please Login to continue to the App.</h1>
-</header>
-    <div class='form-group'>
-        <form method='POST' action='/login'>
-            {{ csrf_field() }}
-            <p>Email</p>
-            <input type='email' name='username' required>
-            <p>Password</p>
-            <input type='password' required>
-            <input class='submit-button' type='submit' value='Login'>
-        </form>
-    </div>
-
+  <div id="login"></div>
 </body>
 
+<script src="{{ mix('/js/login.js') }}"></script>
 </html>
