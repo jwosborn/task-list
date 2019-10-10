@@ -3,13 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
-    public function index(Request $request)
+    public function getLoggedInUser(Request $request)
     {
-        $data = $request->session()->all();
-        redirect ('/');
-        return $data;
+       $loggedInUser = \App\User::where('isLoggedIn', 1)->first();
+        return $loggedInUser->username;
     }
 }

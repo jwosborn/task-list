@@ -20,5 +20,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::resource('/tasks', 'TasksController');
 
 Route::group(['middleware' => 'web'], function () {
-    Route::get('/user', 'UserController@index');
+    Route::get('/user', 'UserController@getLoggedInUser');
 });

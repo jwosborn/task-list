@@ -13994,6 +13994,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Tasks",
@@ -14029,7 +14030,8 @@ __webpack_require__.r(__webpack_exports__);
       input: "",
       daily: true,
       image: __webpack_require__(/*! @/../../public/jpg/light-wood.jpg */ "./public/jpg/light-wood.jpg"),
-      user: {}
+      user: "",
+      error: ""
     };
   },
   created: function created() {
@@ -14039,12 +14041,10 @@ __webpack_require__.r(__webpack_exports__);
       return _this4.tasks = res.data;
     })["catch"](function (e) {
       return console.log(e);
-    }); //need route to populate user from session.
+    }); //need route to populate user from login.
 
-    axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/user").then(function (res) {
+    axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("api/user").then(function (res) {
       return _this4.user = res.data;
-    })["catch"](function (e) {
-      return console.log(e);
     });
   }
 });
@@ -15446,6 +15446,8 @@ var render = function() {
       }
     },
     [
+      _c("p", [_vm._v("Welcome, " + _vm._s(_vm.user) + "!")]),
+      _vm._v(" "),
       _c(
         "div",
         { staticClass: "task-wrapper" },

@@ -29,8 +29,8 @@ class LoginController1 extends Controller
             return redirect('/login')->with('error', $error);
         } elseif (Hash::check($loginPassword, user[0]->password)){
             $user->isLoggedIn=1;
-            $request->session()->put('user', [$user[0]->email, $user[0]->username, $user[0]->isLoggedIn]);
-            return redirect('/');
+            $userData=[$user[0]->email, $user[0]->username, $user[0]->isLoggedIn];
+            return view('/')->with('user', $userData);
         } else {
             $error='Invalid Password';
             return redirect('/login')->with('error', $error);

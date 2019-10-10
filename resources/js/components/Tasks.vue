@@ -5,6 +5,7 @@
         'background-image': 'url(' + image + ')',
       }"
   >
+    <p>Welcome, {{ user}}!</p>
     <div class="task-wrapper">
       <h3>Daily Tasks</h3>
       <div :key="task.id" v-for="task in tasks">
@@ -109,7 +110,8 @@ export default {
       input: "",
       daily: true,
       image: require("@/../../public/jpg/light-wood.jpg"),
-      user: {}
+      user: "",
+      error: ""
     };
   },
 
@@ -118,12 +120,8 @@ export default {
       .get("/api/tasks/")
       .then(res => (this.tasks = res.data))
       .catch(e => console.log(e));
-
-    //need route to populate user from session.
-    axios
-      .get("/api/user")
-      .then(res => (this.user = res.data))
-      .catch(e => console.log(e));
+    //need route to populate user from login.
+    axios.get("api/user").then(res => (this.user = res.data));
   }
 };
 </script>
