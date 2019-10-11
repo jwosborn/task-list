@@ -2,7 +2,7 @@
   <div class="header-wrapper">
     <div class="banner-wrapper">
       <h1>TO-DO LIST</h1>
-      <p>
+      <p v-if="user!=''">
         Welcome, {{ user }}! Not you?
         <a href="#">Logout</a>
       </p>
