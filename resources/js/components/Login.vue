@@ -20,7 +20,11 @@
   </div>
 </template>
 <script>
-export default {};
+export default {
+  data() {
+    error: "";
+  }
+};
 </script>
 <style scoped>
 .login-wrapper {
