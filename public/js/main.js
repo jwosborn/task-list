@@ -13881,6 +13881,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -13893,8 +13895,27 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "Header"
+  name: "Header",
+  data: function data() {
+    return {
+      user: ""
+    };
+  },
+  created: function created() {
+    var _this = this;
+
+    axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("api/user").then(function (res) {
+      return _this.user = res.data;
+    });
+  }
 });
 
 /***/ }),
@@ -13910,7 +13931,6 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
-//
 //
 //
 //
@@ -14041,10 +14061,6 @@ __webpack_require__.r(__webpack_exports__);
       return _this4.tasks = res.data;
     })["catch"](function (e) {
       return console.log(e);
-    }); //need route to populate user from login.
-
-    axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("api/user").then(function (res) {
-      return _this4.user = res.data;
     });
   }
 });
@@ -14101,7 +14117,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\nh1[data-v-1f42fb90] {\n  margin: 0 auto;\n  font-size: 5em;\n}\n.header-wrapper[data-v-1f42fb90] {\n  display: flex;\n  background: #8c756c;\n  color: white;\n}\n.login-wrapper[data-v-1f42fb90] {\n  display: flex;\n  flex-direction: column;\n}\na[data-v-1f42fb90] {\n  color: white;\n  margin: 0.5em auto;\n}\n", ""]);
+exports.push([module.i, "\nh1[data-v-1f42fb90] {\n  margin: 0 auto;\n  font-size: 6em;\n}\n.header-wrapper[data-v-1f42fb90] {\n  display: flex;\n  background: #8c756c;\n  color: white;\n  justify-content: space-evenly;\n}\n.banner-wrapper[data-v-1f42fb90] {\n  display: flex;\n  flex-direction: column;\n  margin: auto 2em;\n}\n.login-wrapper[data-v-1f42fb90] {\n  display: flex;\n  flex-direction: column;\n  margin-top: 1em;\n}\na[data-v-1f42fb90] {\n  color: white;\n  margin: 0.5em auto;\n}\n", ""]);
 
 // exports
 
@@ -15394,24 +15410,31 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "header-wrapper" }, [
+    _c("div", { staticClass: "banner-wrapper" }, [
+      _c("h1", [_vm._v("TO-DO LIST")]),
+      _vm._v(" "),
+      _c("p", [
+        _vm._v("\n      Welcome, " + _vm._s(_vm.user) + "! Not you?\n      "),
+        _c("a", { attrs: { href: "#" } }, [_vm._v("Logout")])
+      ])
+    ]),
+    _vm._v(" "),
+    _vm._m(0)
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "header-wrapper" }, [
-      _c("h1", [_vm._v("TO-DO LIST")]),
+    return _c("div", { staticClass: "login-wrapper" }, [
+      _c("a", { attrs: { href: "/login" } }, [_vm._v("Login")]),
       _vm._v(" "),
-      _c("div", { staticClass: "login-wrapper" }, [
-        _c("a", { attrs: { href: "/login" } }, [_vm._v("Login")]),
-        _vm._v(" "),
-        _c("a", { attrs: { href: "/register" } }, [
-          _vm._v("\n      New User?\n      "),
-          _c("br"),
-          _vm._v("Create an account!\n    ")
-        ])
+      _c("a", { attrs: { href: "/register" } }, [
+        _vm._v("\n      New User?\n      "),
+        _c("br"),
+        _vm._v("Create an account!\n    ")
       ])
     ])
   }
@@ -15446,8 +15469,6 @@ var render = function() {
       }
     },
     [
-      _c("p", [_vm._v("Welcome, " + _vm._s(_vm.user) + "!")]),
-      _vm._v(" "),
       _c(
         "div",
         { staticClass: "task-wrapper" },
