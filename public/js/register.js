@@ -12079,6 +12079,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
@@ -12095,7 +12099,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\nheader[data-v-97358ae4] {\n  background-color: #8c756c;\n  color: white;\n}\nh1[data-v-97358ae4] {\n  margin: 1em auto;\n}\nform[data-v-97358ae4] {\n  background-color: #d9cdbf;\n}\n", ""]);
+exports.push([module.i, "\n.register-wrapper[data-v-97358ae4] {\n  font-family: \"Nanum Gothic\", sans-serif;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n  color: #2c3e50;\n  margin-top: 5px;\n}\nheader[data-v-97358ae4] {\n  background-color: #8c756c;\n  color: white;\n  padding-bottom: 2em;\n  text-align: center;\n}\nh1[data-v-97358ae4] {\n  color: inherit;\n}\nform[data-v-97358ae4] {\n  padding-top: 1em;\n  padding-left: 1em;\n  background-color: #d9cdbf;\n}\n.login[data-v-97358ae4] {\n  background-color: #d9cdbf;\n  padding-top: 1em;\n  padding-left: 1em;\n  color: #2c3e50;\n}\na[data-v-97358ae4]:visited {\n  color: #2c3e50;\n}\n", ""]);
 
 // exports
 
@@ -13220,7 +13224,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "register-wrapper" }, [
       _c("header", [
-        _c("h1", [_vm._v("Please Create an account to continue to the App.")])
+        _c("h1", [_vm._v("Please Create an account to use Task List.")])
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "form-group" }, [
@@ -13245,6 +13249,11 @@ var staticRenderFns = [
             staticClass: "submit-button",
             attrs: { type: "submit", value: "Register" }
           })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "login" }, [
+          _vm._v("\n      Already have an account?\n      "),
+          _c("a", { attrs: { href: "/login" } }, [_vm._v("Login!")])
         ])
       ])
     ])

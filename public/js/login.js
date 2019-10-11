@@ -12077,6 +12077,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
@@ -12093,7 +12097,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\nheader[data-v-6bdc8b8e] {\n  background-color: #8c756c;\n  color: white;\n}\nh1[data-v-6bdc8b8e] {\n  margin: 1em auto;\n}\nform[data-v-6bdc8b8e] {\n  background-color: #d9cdbf;\n}\n", ""]);
+exports.push([module.i, "\n.login-wrapper[data-v-6bdc8b8e] {\n  font-family: \"Nanum Gothic\", sans-serif;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n  color: #2c3e50;\n  margin-top: 10px;\n}\nheader[data-v-6bdc8b8e] {\n  background-color: #8c756c;\n  color: white;\n}\nh1[data-v-6bdc8b8e] {\n  margin: auto;\n  padding: 3em auto;\n}\nform[data-v-6bdc8b8e] {\n  background-color: #d9cdbf;\n  padding-left: 1em;\n  padding-top: 1em;\n  padding-bottom: 0.5em;\n}\n.register[data-v-6bdc8b8e] {\n  background-color: #d9cdbf;\n  padding-top: 1em;\n  padding-left: 1em;\n  color: #2c3e50;\n}\na[data-v-6bdc8b8e]:visited {\n  color: #2c3e50;\n}\n", ""]);
 
 // exports
 
@@ -13216,7 +13220,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [
+    return _c("div", { staticClass: "login-wrapper" }, [
       _c("header", [
         _c("h1", [_vm._v("Please Login to continue to the App.")])
       ]),
@@ -13238,6 +13242,11 @@ var staticRenderFns = [
             attrs: { type: "submit", value: "Login" }
           })
         ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "register" }, [
+        _vm._v("\n    New User?\n    "),
+        _c("a", { attrs: { href: "/register" } }, [_vm._v("Register Here")])
       ])
     ])
   }
