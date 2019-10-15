@@ -12,6 +12,11 @@
 */
 
 Route::get('/', function () {
+    $user = session('username');
+    if(!$user)
+    {
+        return redirect('/login');
+    }
     return view('index');
 });
 Route::get('/login', 'LoginController1@index');

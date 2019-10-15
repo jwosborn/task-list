@@ -5,5 +5,6 @@ Vue.component("Login", require("./components/Login").default);
 
 new Vue({
     el: "#login",
-    render: h => h(Login)
+    render: h => h(Login),
+    props: ["csrf"]
 });

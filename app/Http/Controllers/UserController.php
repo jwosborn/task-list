@@ -9,7 +9,7 @@ class UserController extends Controller
 {
     public function getLoggedInUser(Request $request)
     {
-       $loggedInUser = \App\User::where('isLoggedIn', 1)->first();
-        return $loggedInUser->username;
+       $loggedInUser = $request->session()->get('username');
+       return $loggedInUser;
     }
 }

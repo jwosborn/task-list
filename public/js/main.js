@@ -14058,7 +14058,7 @@ __webpack_require__.r(__webpack_exports__);
     var _this4 = this;
 
     axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/tasks/").then(function (res) {
-      return _this4.tasks = res.data;
+      return _this4.tasks = res.data.tasks;
     })["catch"](function (e) {
       return console.log(e);
     });

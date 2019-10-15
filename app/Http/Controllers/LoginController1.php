@@ -15,26 +15,27 @@ class LoginController1 extends Controller
    public function login(Request $request )
    {
         $this->validate(request(),[
-            'username' => 'required|e-mail',
+            'email' => 'required|e-mail',
             'password' => 'required|min:2'
         ]);
 
         $loginUser=$request->email;
         $loginPassword=$request->password;
 
-        $user=\App\User::where('email', $loginuser)->get();
+        $user=\App\User::where('email', $loginUser)->get();
 
-        if($user->isEmpty()){
+        if(!$user){
             $error='Invalid Username';
-            return redirect('/login')->with('error', $error);
-        } elseif (Hash::check($loginPassword, user[0]->password)){
-            $user->isLoggedIn=1;
-            $userData=[$user[0]->email, $user[0]->username, $user[0]->isLoggedIn];
-            $request->session()->put('user', $user[0]->username);
+            Session()->put('error', $error);
+            return redirect('/login');
+        } elseif (Hash::check($loginPassword, $user[0]->password)){
+            $userData=[$user[0]->email, $user[0]->username];
+            $request->Session(['username' => $user[0]->username]);
             return view('/');
         } else {
             $error='Invalid Password';
-            return redirect('/login')->with('error', $error);
+            Session()->put('error', $error);
+            return redirect('/login');
 
         }
     }
