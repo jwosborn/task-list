@@ -22,15 +22,15 @@ class LoginController1 extends Controller
         $loginUser=$request->email;
         $loginPassword=$request->password;
 
-        $user=\App\User::where('email', $loginUser)->get();
+        $user=\App\User::where('email', $loginUser)->first();
 
         if(!$user){
             $error='Invalid Username';
             Session()->put('error', $error);
             return redirect('/login');
-        } elseif (Hash::check($loginPassword, $user[0]->password)){
-            $userData=[$user[0]->email, $user[0]->username];
-            $request->Session(['username' => $user[0]->username]);
+        } elseif (Hash::check($loginPassword, $user->password)){
+            $userData=[$user->email, $user->username];
+            Session(['username' => $user->username]);
             return view('/');
         } else {
             $error='Invalid Password';

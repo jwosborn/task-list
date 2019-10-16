@@ -13,10 +13,8 @@ class TasksController extends Controller
      */
     public function index()
     {
-        $user = session('username');
-        if(!$user) return redirect('/login');
         $tasks = \App\Task::all();
-        $user = $request->session()->get('username');
+        $user = Session()->get('username');
         return view('index', ['tasks' => $tasks,'user' => $user]);
     }
 

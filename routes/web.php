@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    $user = session('username');
+    $user = Session::get('username');
     if(!$user)
     {
         return redirect('/login');
