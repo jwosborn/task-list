@@ -15,7 +15,7 @@
         <p>Email</p>
         <input type="email" name="email" required />
         <p>Password</p>
-        <input type="password" name="password" required />
+        <input type="password" name="password"  />
         <input class="submit-button" type="submit" value="Login" />
       @if(Session::has('error'))
         <p class="alert">*{{ Session::get('error') }}</p>

@@ -22,3 +22,7 @@ Route::resource('/tasks', 'TasksController');
 Route::group(['middleware' => 'web'], function () {
     Route::get('/user', 'UserController@getLoggedInUser');
 });
+
+Route::post("/login",  function(Request $request) {
+    dd($request);
+  });

@@ -15,9 +15,9 @@ class NewUserController extends Controller
     public function create(Request $request)
     {
         $user = new \App\User();
-        $user->username=$request->email;
-        $user->email=$request->email;
-        $user->password=Hash::make($request->password);
+        $user->username=$request->input('username');
+        $user->email=$request->input('email');
+        $user->password=Hash::make($request->input('password'));
         $user->isLoggedIn=1;
         $user->save();
         return view('index');

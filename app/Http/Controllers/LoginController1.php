@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use \App\User;
+use \App\Task;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -15,8 +16,8 @@ class LoginController1 extends Controller
    public function login(Request $request)
    {
 
-        $loginUser=$request['email'];
-        $loginPassword=$request['password'];
+        $loginUser = $request->input('email');
+        $loginPassword = $request->input('password');
 
         $user=\App\User::where('email', $loginUser)->first();
 
@@ -26,7 +27,8 @@ class LoginController1 extends Controller
             return redirect('/login');
         } elseif (Hash::check($loginPassword, $user['password'])){
             Session()->put('username', $user['username']);
-            return view('/');
+            $tasks = \App\Task::all();
+            return view('index')->with('tasks', $tasks);
         } else {
             $error='Invalid Password';
             Session()->put('error', $error);

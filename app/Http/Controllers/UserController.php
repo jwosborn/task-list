@@ -7,9 +7,8 @@ use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
-    public function getLoggedInUser(Request $request)
-    {
-       $loggedInUser = $request->session()->get('username');
+    public function getLoggedInUser() {
+       $loggedInUser = Session()->get('username');
        return $loggedInUser;
     }
 }
