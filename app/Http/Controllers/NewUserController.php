@@ -17,10 +17,9 @@ class NewUserController extends Controller
         $user = new \App\User();
         $user->username=$request->email;
         $user->email=$request->email;
-        $user->password=Hash::make($request['password']);
+        $user->password=Hash::make($request->password);
         $user->isLoggedIn=1;
         $user->save();
         return view('index');
     }
-
 }
