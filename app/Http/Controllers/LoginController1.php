@@ -27,8 +27,8 @@ class LoginController1 extends Controller
             return redirect('/login');
         } elseif (Hash::check($loginPassword, $user['password'])){
             Session()->put('username', $user['username']);
-            $tasks=Task::all();
-            return view('index')->with('tasks', $tasks);
+            Session()->forget('error');
+            return view('index');
         } else {
             $error='Invalid Password';
             Session()->put('error', $error);

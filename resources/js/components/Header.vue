@@ -2,8 +2,7 @@
   <div class="header-wrapper">
     <div class="banner-wrapper">
       <h1>TO-DO LIST</h1>
-      <p v-if="user!=''">Welcome, {{ user }}! Not you?</p>
-      <a href="/logout">Logout</a>
+      <p v-if="user!=''">Welcome, {{ user }}!</p>
     </div>
     <div class="login-wrapper">
       <a href="/login">Login</a>
@@ -11,6 +10,7 @@
         New User?
         <br />Create an account!
       </a>
+      <a href="/logout">Logout</a>
     </div>
   </div>
 </template>
@@ -24,7 +24,7 @@ export default {
     };
   },
   created() {
-    axios.get("api/user").then(res => (this.user = res.data));
+    axios.get("api/tasks").then(res => (this.user = res.data.user));
   }
 };
 </script>

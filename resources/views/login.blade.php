@@ -21,9 +21,6 @@
         <p class="alert">*{{ Session::get('error') }}</p>
       @endif
       </form>
-      @php
-      var_dump(Session::all());
-      @endphp
     </div>
     <div class="register">
       New User?

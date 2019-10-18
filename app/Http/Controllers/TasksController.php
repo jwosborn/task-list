@@ -14,8 +14,8 @@ class TasksController extends Controller
     public function index()
     {
         $tasks = \App\Task::all();
-        $user = Session('username');
-        return view('index', ['tasks' => $tasks,'user' => $user]);
+        $user = session('username'); //returns null
+        return ['tasks' => $tasks,'user' => $user];
     }
 
     /**

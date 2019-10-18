@@ -117,7 +117,7 @@ export default {
   created() {
     axios
       .get("/api/tasks/")
-      .then(res => (this.tasks = res.data.tasks))
+      .then(res => ((this.tasks = res.data.tasks), (this.user = res.data.user)))
       .catch(e => console.log(e));
   }
 };

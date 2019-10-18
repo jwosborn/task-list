@@ -6,9 +6,6 @@
 
 <body>
   <div id="task-list"></div>
-  @php
-      var_dump(Session::all());
-  @endphp
 </body>
 
 <script src="{{ mix('/js/main.js') }}"></script>

@@ -13910,8 +13910,8 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     var _this = this;
 
-    axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("api/user").then(function (res) {
-      return _this.user = res.data;
+    axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("api/tasks").then(function (res) {
+      return _this.user = res.data.user;
     });
   }
 });
@@ -14056,7 +14056,7 @@ __webpack_require__.r(__webpack_exports__);
     var _this4 = this;
 
     axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/tasks/").then(function (res) {
-      return _this4.tasks = res.data.tasks;
+      return _this4.tasks = res.data.tasks, _this4.user = res.data.user;
     })["catch"](function (e) {
       return console.log(e);
     });
@@ -15413,10 +15413,8 @@ var render = function() {
       _c("h1", [_vm._v("TO-DO LIST")]),
       _vm._v(" "),
       _vm.user != ""
-        ? _c("p", [_vm._v("Welcome, " + _vm._s(_vm.user) + "! Not you?")])
-        : _vm._e(),
-      _vm._v(" "),
-      _c("a", { attrs: { href: "/logout" } }, [_vm._v("Logout")])
+        ? _c("p", [_vm._v("Welcome, " + _vm._s(_vm.user) + "!")])
+        : _vm._e()
     ]),
     _vm._v(" "),
     _vm._m(0)
@@ -15434,7 +15432,9 @@ var staticRenderFns = [
         _vm._v("\n      New User?\n      "),
         _c("br"),
         _vm._v("Create an account!\n    ")
-      ])
+      ]),
+      _vm._v(" "),
+      _c("a", { attrs: { href: "/logout" } }, [_vm._v("Logout")])
     ])
   }
 ]
