@@ -15,7 +15,7 @@
         <p>Email</p>
         <input type="email" name="email" required />
         <p>Password</p>
-        <input type="password" required />
+        <input type="password" name="password" required />
         <input class="submit-button" type="submit" value="Register" />
       </form>
       <div class="login">

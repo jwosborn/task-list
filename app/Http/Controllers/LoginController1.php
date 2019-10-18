@@ -19,7 +19,7 @@ class LoginController1 extends Controller
         $loginUser = $request->input('email');
         $loginPassword = $request->input('password');
 
-        $user=\App\User::where('email', $loginUser)->first();
+        $user=User::where('email', $loginUser)->first();
 
         if(!$user){
             $error='Invalid Username';
@@ -27,7 +27,7 @@ class LoginController1 extends Controller
             return redirect('/login');
         } elseif (Hash::check($loginPassword, $user['password'])){
             Session()->put('username', $user['username']);
-            $tasks = \App\Task::all();
+            $tasks=Task::all();
             return view('index')->with('tasks', $tasks);
         } else {
             $error='Invalid Password';

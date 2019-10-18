@@ -2,10 +2,8 @@
   <div class="header-wrapper">
     <div class="banner-wrapper">
       <h1>TO-DO LIST</h1>
-      <p v-if="user!=''">
-        Welcome, {{ user }}! Not you?
-        <a href="#">Logout</a>
-      </p>
+      <p v-if="user!=''">Welcome, {{ user }}! Not you?</p>
+      <a href="/logout">Logout</a>
     </div>
     <div class="login-wrapper">
       <a href="/login">Login</a>

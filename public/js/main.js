@@ -13899,8 +13899,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Header",
@@ -15415,13 +15413,10 @@ var render = function() {
       _c("h1", [_vm._v("TO-DO LIST")]),
       _vm._v(" "),
       _vm.user != ""
-        ? _c("p", [
-            _vm._v(
-              "\n      Welcome, " + _vm._s(_vm.user) + "! Not you?\n      "
-            ),
-            _c("a", { attrs: { href: "#" } }, [_vm._v("Logout")])
-          ])
-        : _vm._e()
+        ? _c("p", [_vm._v("Welcome, " + _vm._s(_vm.user) + "! Not you?")])
+        : _vm._e(),
+      _vm._v(" "),
+      _c("a", { attrs: { href: "/logout" } }, [_vm._v("Logout")])
     ]),
     _vm._v(" "),
     _vm._m(0)
