@@ -21,7 +21,7 @@ class NewUserController extends Controller
         $user->password=$hashed;
         $user->isLoggedIn=1;
         $user->save();
-        Session()->put('username', $user['username']);
+        Session()->put('username', $user->username);
         return view('index');
     }
 }
