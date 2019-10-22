@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Header />
-    <Tasks />
+    <Tasks :tasks="this.tasks" />
     <Footer />
   </div>
 </template>
@@ -10,6 +10,7 @@
 import Tasks from "./components/Tasks.vue";
 import Header from "./components/Header.vue";
 import Footer from "./components/Footer.vue";
+import axios from "axios";
 
 export default {
   name: "app",
@@ -17,6 +18,18 @@ export default {
     Tasks,
     Header,
     Footer
+  },
+  data() {
+    return {
+      tasks: [],
+      user: ""
+    };
+  },
+  created() {
+    axios
+      .get("/api/tasks")
+      .then(res => (this.tasks = res.data))
+      .catch(e => console.log(e));
   }
 };
 </script>

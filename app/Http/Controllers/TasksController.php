@@ -13,9 +13,8 @@ class TasksController extends Controller
      */
     public function index()
     {
-
-        return \App\Task::all();
-        return view ('index');
+        $tasks = \App\Task::all();
+        return $tasks;
     }
 
     /**

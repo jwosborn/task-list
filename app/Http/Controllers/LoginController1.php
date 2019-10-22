@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use \App\User;
+use \App\Task;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -12,28 +13,26 @@ class LoginController1 extends Controller
     return view('login');
    }
 
-   public function login(Request $request )
+   public function login(Request $request)
    {
-    $this->validate(request(),[
-        'username' => 'required|e-mail',
-        'password' => 'required|min:2'
-    ]);
 
-    $loginUser=$request->email;
-    $loginPassword=$request->password;
+        $loginUser = $request->input('email');
+        $loginPassword = $request->input('password');
 
-    $user=\App\User::where('email', $loginuser)->get();
+        $user=User::where('email', $loginUser)->first();
 
-    if($user->isEmpty()){
-        $error='Invalid Username';
-        return redirect('/login')->with('error', $error);
-    } elseif (Hash::check($loginPassword, user[0]->password)){
-        $user->isLoggedIn=1;
-        return redirect('/');
+        if(!$user){
+            $error='Invalid Username';
+            Session()->put('error', $error);
+            return redirect('/login');
+        } elseif (Hash::check($loginPassword, $user->password)){
+            Session()->put('username', $user->username);
+            Session()->forget('error');
+            return view('index');
         } else {
             $error='Invalid Password';
-            return redirect('/login')->with('error', $error);
-
+            Session()->put('error', $error);
+            return redirect('/login');
         }
     }
    }
