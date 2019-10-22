@@ -2,7 +2,7 @@
   <div class="header-wrapper">
     <div class="banner-wrapper">
       <h1>TO-DO LIST</h1>
-      <p v-if="user!=''">Welcome, {{ user }}!</p>
+      <p v-if="user">Welcome, {{ user }}!</p>
     </div>
     <div class="login-wrapper">
       <a href="/login">Login</a>

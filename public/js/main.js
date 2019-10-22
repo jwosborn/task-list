@@ -13828,6 +13828,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Tasks_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/Tasks.vue */ "./resources/js/components/Tasks.vue");
 /* harmony import */ var _components_Header_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/Header.vue */ "./resources/js/components/Header.vue");
 /* harmony import */ var _components_Footer_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/Footer.vue */ "./resources/js/components/Footer.vue");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
 //
 //
 //
@@ -13836,6 +13838,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 
 
 
@@ -13845,6 +13848,21 @@ __webpack_require__.r(__webpack_exports__);
     Tasks: _components_Tasks_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
     Header: _components_Header_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
     Footer: _components_Footer_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
+  },
+  data: function data() {
+    return {
+      tasks: [],
+      user: ""
+    };
+  },
+  created: function created() {
+    var _this = this;
+
+    axios__WEBPACK_IMPORTED_MODULE_3___default.a.get("/api/tasks").then(function (res) {
+      return _this.tasks = res.data;
+    })["catch"](function (e) {
+      return console.log(e);
+    });
   }
 });
 
@@ -14016,6 +14034,9 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Tasks",
+  props: {
+    tasks: Array
+  },
   methods: {
     addTask: function addTask() {
       var _this = this;
@@ -14044,22 +14065,12 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      tasks: [],
       input: "",
       daily: true,
       image: __webpack_require__(/*! @/../../public/jpg/light-wood.jpg */ "./public/jpg/light-wood.jpg"),
       user: "",
       error: ""
     };
-  },
-  created: function created() {
-    var _this4 = this;
-
-    axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/tasks/").then(function (res) {
-      return _this4.tasks = res.data.tasks, _this4.user = res.data.user;
-    })["catch"](function (e) {
-      return console.log(e);
-    });
   }
 });
 
@@ -15343,7 +15354,13 @@ var render = function() {
   return _c(
     "div",
     { attrs: { id: "app" } },
-    [_c("Header"), _vm._v(" "), _c("Tasks"), _vm._v(" "), _c("Footer")],
+    [
+      _c("Header"),
+      _vm._v(" "),
+      _c("Tasks", { attrs: { tasks: this.tasks } }),
+      _vm._v(" "),
+      _c("Footer")
+    ],
     1
   )
 }
@@ -15412,7 +15429,7 @@ var render = function() {
     _c("div", { staticClass: "banner-wrapper" }, [
       _c("h1", [_vm._v("TO-DO LIST")]),
       _vm._v(" "),
-      _vm.user != ""
+      _vm.user
         ? _c("p", [_vm._v("Welcome, " + _vm._s(_vm.user) + "!")])
         : _vm._e()
     ]),

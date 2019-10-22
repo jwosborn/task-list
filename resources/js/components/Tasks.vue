@@ -86,6 +86,9 @@
 import axios from "axios";
 export default {
   name: "Tasks",
+  props: {
+    tasks: Array
+  },
   methods: {
     addTask() {
       axios
@@ -105,20 +108,12 @@ export default {
   },
   data: function() {
     return {
-      tasks: [],
       input: "",
       daily: true,
       image: require("@/../../public/jpg/light-wood.jpg"),
       user: "",
       error: ""
     };
-  },
-
-  created() {
-    axios
-      .get("/api/tasks/")
-      .then(res => ((this.tasks = res.data.tasks), (this.user = res.data.user)))
-      .catch(e => console.log(e));
   }
 };
 </script>
