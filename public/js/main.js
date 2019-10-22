@@ -13863,6 +13863,11 @@ __webpack_require__.r(__webpack_exports__);
     })["catch"](function (e) {
       return console.log(e);
     });
+    axios__WEBPACK_IMPORTED_MODULE_3___default.a.get("/api/user").then(function (res) {
+      return _this.user = res.data;
+    })["catch"](function (e) {
+      return console.log(e);
+    });
   }
 });
 

@@ -18,3 +18,7 @@ use Illuminate\Http\Request;
 // });
 
 Route::resource('/tasks', 'TasksController');
+Route::get('/user', function() {
+    $user = Session::get('username');
+    return $user;
+});
