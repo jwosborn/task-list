@@ -15,13 +15,15 @@ class TasksTableSeeder extends Seeder
             'title' => 'test',
             'isDone' => '0',
             'weekly' => '0',
-            'created_by' => 'Admin'
+            'created_by' => 'Admin',
+            'edit' => '0'
         ]);
         DB::table('tasks')->insert([
             'title' => 'weeklytest',
             'isDone' => '0',
             'weekly' => '1',
-            'created_by' => 'Admin'
+            'created_by' => 'Admin',
+            'edit' => '0'
         ]);
     }
 }
