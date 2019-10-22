@@ -17,7 +17,6 @@ class UsersTableSeeder extends Seeder
             'userName' => 'admin',
             'email' => 'admin@admin.com',
             'password' => Hash::make('password'),
-            'isLoggedIn' => 0,
         ]);
     }
 }
