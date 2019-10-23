@@ -18,14 +18,7 @@
 import axios from "axios";
 export default {
   name: "Header",
-  data() {
-    return {
-      user: ""
-    };
-  },
-  created() {
-    axios.get("api/tasks").then(res => (this.user = res.data.user));
-  }
+  props: { user: String }
 };
 </script>
 

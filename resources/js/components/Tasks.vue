@@ -87,7 +87,8 @@ import axios from "axios";
 export default {
   name: "Tasks",
   props: {
-    tasks: Array
+    tasks: Array,
+    user: String
   },
   methods: {
     addTask() {
@@ -111,7 +112,6 @@ export default {
       input: "",
       daily: true,
       image: require("@/../../public/jpg/light-wood.jpg"),
-      user: "",
       error: ""
     };
   }

@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <Header />
-    <Tasks :tasks="this.tasks" />
+    <Header :user="this.user" />
+    <Tasks :tasks="this.tasks" :user="this.user" />
     <Footer />
   </div>
 </template>
@@ -31,7 +31,7 @@ export default {
       .then(res => (this.tasks = res.data))
       .catch(e => console.log(e));
     axios
-      .get("/api/user")
+      .get("/user")
       .then(res => (this.user = res.data))
       .catch(e => console.log(e));
   }

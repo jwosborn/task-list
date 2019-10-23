@@ -13,8 +13,8 @@ class TasksController extends Controller
      */
     public function index()
     {
-        $user = Session()->get('username');
-        $tasks = \App\Task::where('created_by', $user)->all();
+        $user = Session::get("username");
+        $tasks = \App\Task::where('created_by', $user)->get();
         return $tasks;
     }
 
