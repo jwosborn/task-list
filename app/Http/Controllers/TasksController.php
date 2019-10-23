@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Session;
 
 class TasksController extends Controller
 {
@@ -11,9 +12,9 @@ class TasksController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $user = Session::get("username");
+        $user = $request->session()->get('username');
         $tasks = \App\Task::where('created_by', $user)->get();
         return $tasks;
     }
