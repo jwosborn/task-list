@@ -7,7 +7,7 @@
 <body>
 <div class="login-wrapper">
     <header>
-      <h1>Please Login to continue to the App.</h1>
+      <h1>Please Login tooooo continue to the App.</h1>
     </header>
     <div class="form-group">
       <form method="POST" action="{{url('/login')}}">
