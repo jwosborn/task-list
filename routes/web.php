@@ -27,3 +27,8 @@ Route::group(['middleware' => ['web']], function () {
         return $user;
     });
 });
+Route::resource('tasks', 'TasksController');
+// Route::get('/tasks', 'TasksController@index');
+// Route::post('/tasks', 'TasksController@store');
+// Route::patch('/tasks', 'TasksController@update');
+// Route::delete('/tasks', 'TasksController@destroy');

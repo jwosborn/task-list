@@ -13858,7 +13858,7 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     var _this = this;
 
-    axios__WEBPACK_IMPORTED_MODULE_3___default.a.get("/api/tasks").then(function (res) {
+    axios__WEBPACK_IMPORTED_MODULE_3___default.a.get("/tasks").then(function (res) {
       return _this.tasks = res.data;
     })["catch"](function (e) {
       return console.log(e);
@@ -14038,9 +14038,10 @@ __webpack_require__.r(__webpack_exports__);
     addTask: function addTask() {
       var _this = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post("/api/tasks/", {
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post("/tasks", {
         title: this.input,
-        weekly: !this.daily
+        weekly: !this.daily,
+        created_by: this.user
       }).then(function (res) {
         return _this.tasks = res.data, _this.input = "";
       });
@@ -14048,14 +14049,14 @@ __webpack_require__.r(__webpack_exports__);
     removeTask: function removeTask(task) {
       var _this2 = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a["delete"]("/api/tasks/".concat(task.id)).then(function (res) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a["delete"]("/tasks/".concat(task.id)).then(function (res) {
         return _this2.tasks = res.data;
       });
     },
     updateTask: function updateTask(task) {
       var _this3 = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.patch("/api/tasks/".concat(task.id), task).then(function (res) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.patch("/tasks/".concat(task.id), task).then(function (res) {
         return _this3.tasks = res.data;
       });
     }

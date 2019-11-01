@@ -93,17 +93,19 @@ export default {
   methods: {
     addTask() {
       axios
-        .post("/api/tasks/", { title: this.input, weekly: !this.daily })
+        .post("/tasks", {
+          title: this.input,
+          weekly: !this.daily,
+          created_by: this.user
+        })
         .then(res => ((this.tasks = res.data), (this.input = "")));
     },
     removeTask(task) {
-      axios
-        .delete(`/api/tasks/${task.id}`)
-        .then(res => (this.tasks = res.data));
+      axios.delete(`/tasks/${task.id}`).then(res => (this.tasks = res.data));
     },
     updateTask(task) {
       axios
-        .patch(`/api/tasks/${task.id}`, task)
+        .patch(`/tasks/${task.id}`, task)
         .then(res => (this.tasks = res.data));
     }
   },

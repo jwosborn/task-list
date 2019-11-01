@@ -17,6 +17,5 @@ use Illuminate\Http\Request;
 //     return $request->user();
 // });
 
-Route::resource('/tasks', 'TasksController');
 
 
