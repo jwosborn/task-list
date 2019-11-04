@@ -17,7 +17,7 @@
             @keyup.enter="updateTask(task)"
             v-on:blur="updateTask(task)"
           />
-          <div class="complete" @click="task.isDone = !task.isDone">DONE</div>
+          <div class="complete" @click="toggleIsDone(task)">DONE</div>
         </div>
       </div>
     </div>
@@ -34,7 +34,7 @@
             @keyup.enter="updateTask(task)"
             v-on:blur="updateTask(task)"
           />
-          <div class="complete" @click="task.isDone = !task.isDone">DONE</div>
+          <div class="complete" @click="toggleIsDone(task)">DONE</div>
         </div>
       </div>
     </div>
@@ -51,7 +51,7 @@
             @keyup.enter="updateTask(task)"
             v-on:blur="updateTask(task)"
           />
-          <div class="complete" @click="task.isDone = !task.isDone">DONE</div>
+          <div class="complete" @@click="toggleIsDone(task)">DONE</div>
         </div>
       </div>
     </div>
@@ -68,7 +68,7 @@
             @keyup.enter="updateTask(task)"
             v-on:blur="updateTask(task)"
           />
-          <div class="complete" @click="task.isDone = !task.isDone">DONE</div>
+          <div class="complete" @click="toggleIsDone(task)">DONE</div>
         </div>
       </div>
     </div>
@@ -102,6 +102,12 @@ export default {
     },
     removeTask(task) {
       axios.delete(`/tasks/${task.id}`).then(res => (this.tasks = res.data));
+    },
+    toggleIsDone(task) {
+      task.isDone = !task.isDone;
+      axios
+        .patch(`/tasks/${task.id}`, task)
+        .then(res => (this.tasks = res.data));
     },
     updateTask(task) {
       axios

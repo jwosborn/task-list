@@ -14053,11 +14053,19 @@ __webpack_require__.r(__webpack_exports__);
         return _this2.tasks = res.data;
       });
     },
-    updateTask: function updateTask(task) {
+    toggleIsDone: function toggleIsDone(task) {
       var _this3 = this;
 
+      task.isDone = !task.isDone;
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.patch("/tasks/".concat(task.id), task).then(function (res) {
         return _this3.tasks = res.data;
+      });
+    },
+    updateTask: function updateTask(task) {
+      var _this4 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.patch("/tasks/".concat(task.id), task).then(function (res) {
+        return _this4.tasks = res.data;
       });
     }
   },
@@ -15566,7 +15574,7 @@ var render = function() {
                         staticClass: "complete",
                         on: {
                           click: function($event) {
-                            task.isDone = !task.isDone
+                            return _vm.toggleIsDone(task)
                           }
                         }
                       },
@@ -15664,7 +15672,7 @@ var render = function() {
                         staticClass: "complete",
                         on: {
                           click: function($event) {
-                            task.isDone = !task.isDone
+                            return _vm.toggleIsDone(task)
                           }
                         }
                       },
@@ -15761,8 +15769,8 @@ var render = function() {
                       {
                         staticClass: "complete",
                         on: {
-                          click: function($event) {
-                            task.isDone = !task.isDone
+                          "@click": function($event) {
+                            return _vm.toggleIsDone(task)
                           }
                         }
                       },
@@ -15860,7 +15868,7 @@ var render = function() {
                         staticClass: "complete",
                         on: {
                           click: function($event) {
-                            task.isDone = !task.isDone
+                            return _vm.toggleIsDone(task)
                           }
                         }
                       },
