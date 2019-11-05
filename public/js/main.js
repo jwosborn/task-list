@@ -14053,11 +14053,10 @@ __webpack_require__.r(__webpack_exports__);
         return _this2.tasks = res.data;
       });
     },
-    toggleIsDone: function toggleIsDone(task) {
+    toggleComplete: function toggleComplete(task) {
       var _this3 = this;
 
-      task.isDone = !task.isDone;
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.patch("/tasks/".concat(task.id), task).then(function (res) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.patch("/task/".concat(task.id), task).then(function (res) {
         return _this3.tasks = res.data;
       });
     },
@@ -15574,7 +15573,7 @@ var render = function() {
                         staticClass: "complete",
                         on: {
                           click: function($event) {
-                            return _vm.toggleIsDone(task)
+                            return _vm.toggleComplete(task)
                           }
                         }
                       },
@@ -15672,7 +15671,7 @@ var render = function() {
                         staticClass: "complete",
                         on: {
                           click: function($event) {
-                            return _vm.toggleIsDone(task)
+                            return _vm.toggleComplete(task)
                           }
                         }
                       },
@@ -15769,12 +15768,12 @@ var render = function() {
                       {
                         staticClass: "complete",
                         on: {
-                          "@click": function($event) {
-                            return _vm.toggleIsDone(task)
+                          click: function($event) {
+                            return _vm.toggleComplete(task)
                           }
                         }
                       },
-                      [_vm._v("DONE")]
+                      [_vm._v("RESET")]
                     )
                   ])
                 : _vm._e()
@@ -15868,11 +15867,11 @@ var render = function() {
                         staticClass: "complete",
                         on: {
                           click: function($event) {
-                            return _vm.toggleIsDone(task)
+                            return _vm.toggleComplete(task)
                           }
                         }
                       },
-                      [_vm._v("DONE")]
+                      [_vm._v("RESET")]
                     )
                   ])
                 : _vm._e()

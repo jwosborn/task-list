@@ -28,7 +28,4 @@ Route::group(['middleware' => ['web']], function () {
     });
 });
 Route::resource('tasks', 'TasksController');
-// Route::get('/tasks', 'TasksController@index');
-// Route::post('/tasks', 'TasksController@store');
-// Route::patch('/tasks', 'TasksController@update');
-// Route::delete('/tasks', 'TasksController@destroy');
+Route::patch('/task/{id}', 'TaskController@toggleComplete');
