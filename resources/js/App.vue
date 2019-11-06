@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Header :user="this.user" />
-    <Tasks :tasks="this.tasks" :user="this.user" />
+    <Tasks :user="this.user" />
     <Footer />
   </div>
 </template>
@@ -26,10 +26,6 @@ export default {
     };
   },
   created() {
-    axios
-      .get("/tasks")
-      .then(res => (this.tasks = res.data))
-      .catch(e => console.log(e));
     axios
       .get("/user")
       .then(res => (this.user = res.data))

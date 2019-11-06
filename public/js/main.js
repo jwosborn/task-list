@@ -13858,11 +13858,6 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     var _this = this;
 
-    axios__WEBPACK_IMPORTED_MODULE_3___default.a.get("/tasks").then(function (res) {
-      return _this.tasks = res.data;
-    })["catch"](function (e) {
-      return console.log(e);
-    });
     axios__WEBPACK_IMPORTED_MODULE_3___default.a.get("/user").then(function (res) {
       return _this.user = res.data;
     })["catch"](function (e) {
@@ -14031,7 +14026,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Tasks",
   props: {
-    tasks: Array,
     user: String
   },
   methods: {
@@ -14073,8 +14067,18 @@ __webpack_require__.r(__webpack_exports__);
       input: "",
       daily: true,
       image: __webpack_require__(/*! @/../../public/jpg/light-wood.jpg */ "./public/jpg/light-wood.jpg"),
-      error: ""
+      error: "",
+      tasks: []
     };
+  },
+  created: function created() {
+    var _this5 = this;
+
+    axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/tasks").then(function (res) {
+      return _this5.tasks = res.data;
+    })["catch"](function (e) {
+      return console.log(e);
+    });
   }
 });
 
@@ -15361,7 +15365,7 @@ var render = function() {
     [
       _c("Header", { attrs: { user: this.user } }),
       _vm._v(" "),
-      _c("Tasks", { attrs: { tasks: this.tasks, user: this.user } }),
+      _c("Tasks", { attrs: { user: this.user } }),
       _vm._v(" "),
       _c("Footer")
     ],
