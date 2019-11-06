@@ -1,7 +1,7 @@
 <template>
   <div class="footer-wrapper">
     <span>
-      <h4>Life Tasks was created for the purpose of daily use by Jeremy Osborn to achieve specific goals in the 2019-2020 school year.</h4>
+      <h4>Life Tasks was created by Jeremy Osborn for the purpose of daily use to organize productivity.</h4>
     </span>
   </div>
 </template>

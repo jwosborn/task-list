@@ -6,26 +6,9 @@
       }"
   >
     <div class="task-wrapper">
-      <h3>Daily Tasks</h3>
+      <h3>To-Do:</h3>
       <div :key="task.id" v-for="task in tasks">
-        <div class="task" v-if="!task.isDone && !task.weekly">
-          <div class="remove" @click="removeTask(task)">X</div>
-          <div class="option" @dblclick="task.edit = 1" v-if="task.edit === 0">{{ task.title }}</div>
-          <input
-            v-if="task.edit === 1"
-            v-model="task.title"
-            @keyup.enter="updateTask(task)"
-            v-on:blur="updateTask(task)"
-          />
-          <div class="complete" @click="toggleComplete(task)">DONE</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="task-wrapper">
-      <h3>Weekly Tasks</h3>
-      <div :key="task.id" v-for="task in tasks">
-        <div class="task" v-if="task.weekly && !task.isDone">
+        <div class="task" v-if="!task.isDone">
           <div class="remove" @click="removeTask(task)">X</div>
           <div class="option" @dblclick="task.edit = 1" v-if="task.edit === 0">{{ task.title }}</div>
           <input
