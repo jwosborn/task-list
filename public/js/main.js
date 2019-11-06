@@ -13851,7 +13851,6 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      tasks: [],
       user: ""
     };
   },
@@ -13938,23 +13937,6 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -15693,109 +15675,11 @@ var render = function() {
         "div",
         { staticClass: "task-wrapper" },
         [
-          _c("h3", [_vm._v("Completed Daily Tasks")]),
+          _c("h3", [_vm._v("Completed Tasks")]),
           _vm._v(" "),
           _vm._l(_vm.tasks, function(task) {
             return _c("div", { key: task.id }, [
-              task.isDone && !task.weekly
-                ? _c("div", { staticClass: "task" }, [
-                    _c(
-                      "div",
-                      {
-                        staticClass: "remove",
-                        on: {
-                          click: function($event) {
-                            return _vm.removeTask(task)
-                          }
-                        }
-                      },
-                      [_vm._v("X")]
-                    ),
-                    _vm._v(" "),
-                    task.edit === 0
-                      ? _c(
-                          "div",
-                          {
-                            staticClass: "option",
-                            on: {
-                              dblclick: function($event) {
-                                task.edit = 1
-                              }
-                            }
-                          },
-                          [_vm._v(_vm._s(task.title))]
-                        )
-                      : _vm._e(),
-                    _vm._v(" "),
-                    task.edit === 1
-                      ? _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: task.title,
-                              expression: "task.title"
-                            }
-                          ],
-                          domProps: { value: task.title },
-                          on: {
-                            keyup: function($event) {
-                              if (
-                                !$event.type.indexOf("key") &&
-                                _vm._k(
-                                  $event.keyCode,
-                                  "enter",
-                                  13,
-                                  $event.key,
-                                  "Enter"
-                                )
-                              ) {
-                                return null
-                              }
-                              return _vm.updateTask(task)
-                            },
-                            blur: function($event) {
-                              return _vm.updateTask(task)
-                            },
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.$set(task, "title", $event.target.value)
-                            }
-                          }
-                        })
-                      : _vm._e(),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass: "complete",
-                        on: {
-                          click: function($event) {
-                            return _vm.toggleComplete(task)
-                          }
-                        }
-                      },
-                      [_vm._v("RESET")]
-                    )
-                  ])
-                : _vm._e()
-            ])
-          })
-        ],
-        2
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "task-wrapper" },
-        [
-          _c("h3", [_vm._v("Completed Weekly Tasks")]),
-          _vm._v(" "),
-          _vm._l(_vm.tasks, function(task) {
-            return _c("div", { key: task.id }, [
-              task.isDone && task.weekly
+              task.isDone
                 ? _c("div", { staticClass: "task" }, [
                     _c(
                       "div",
