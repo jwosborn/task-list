@@ -5,12 +5,20 @@
         'background-image': 'url(' + image + ')',
       }"
   >
-    <div class="task-wrapper">
+    <div class="new-task task-column-wrapper">
+      <h3>Add a New Task</h3>
+      <input type="text" id="task-input" @keyup.enter="addTask(input,daily)" v-model="input" />
+      <div class="complete add-button" @click="addTask(input, daily)">ADD</div>
+    </div>
+
+    <div class="task-column-wrapper">
       <h3>To-Do:</h3>
       <div :key="task.id" v-for="task in tasks">
         <div class="task" v-if="!task.isDone">
           <div class="remove" @click="removeTask(task)">X</div>
-          <div class="option" @dblclick="task.edit = 1" v-if="task.edit === 0">{{ task.title }}</div>
+          <div class="option" @dblclick="task.edit = 1" v-if="task.edit === 0">
+            <p>{{ task.title }}</p>
+          </div>
           <input
             v-if="task.edit === 1"
             v-model="task.title"
@@ -22,12 +30,14 @@
       </div>
     </div>
 
-    <div class="task-wrapper">
+    <div class="task-column-wrapper">
       <h3>Completed Tasks</h3>
       <div :key="task.id" v-for="task in tasks">
         <div class="task" v-if="task.isDone">
           <div class="remove" @click="removeTask(task)">X</div>
-          <div class="option" @dblclick="task.edit = 1" v-if="task.edit === 0">{{ task.title }}</div>
+          <div class="option" @dblclick="task.edit = 1" v-if="task.edit === 0">
+            <p>{{ task.title }}</p>
+          </div>
           <input
             v-if="task.edit === 1"
             v-model="task.title"
@@ -37,13 +47,6 @@
           <div class="complete" @click="toggleComplete(task)">RESET</div>
         </div>
       </div>
-    </div>
-    <div class="new-task task-wrapper">
-      <h3>Add a New Task</h3>
-      <input type="text" id="task-input" @keyup.enter="addTask(input,daily)" v-model="input" />
-      <input type="checkbox" id="daily" v-model="daily" />
-      <label for="daily">Daily</label>
-      <div class="complete add-button" @click="addTask(input, daily)">ADD</div>
     </div>
   </div>
 </template>
@@ -129,7 +132,10 @@ h3 {
   margin: 0 auto;
   color: #261b18;
 }
-.task-wrapper {
+p {
+  margin: 0.5em;
+}
+.task-column-wrapper {
   display: flex;
   flex-direction: column;
   margin: 1em;
@@ -174,7 +180,46 @@ label {
 .add-button {
   margin-top: 0.05em;
 }
-#daily {
-  margin: 1em auto;
+
+@media (max-width: 1024px) {
+  .task-list-wrapper {
+    display: block;
+  }
+  .task-column-wrapper {
+    width: 75vw;
+    margin: 0.5em auto;
+  }
+  h3 {
+    width: 65vw;
+    margin: inherit auto;
+    font-size: 3em;
+    height: 75px;
+    margin-top: 10px;
+  }
+  #task-input {
+    width: 35vw;
+    height: 1.25em;
+    font-size: 4em;
+  }
+  .task {
+    width: 75vw;
+    margin: 0.75em auto;
+  }
+  .remove {
+    height: 30px;
+    width: 32px;
+    position: relative;
+    top: 5px;
+    left: 75%;
+  }
+  .complete {
+    width: 25vw;
+    height: 3em;
+    margin-top: 0.5em;
+    font-size: 1.75em;
+  }
+  p {
+    font-size: 2em;
+  }
 }
 </style>

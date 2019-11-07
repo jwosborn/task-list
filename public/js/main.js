@@ -13913,9 +13913,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Header",
@@ -13937,6 +13934,9 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+//
+//
+//
 //
 //
 //
@@ -14099,7 +14099,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\nh1[data-v-1f42fb90] {\n  margin: 0 auto;\n  font-size: 6em;\n}\n.header-wrapper[data-v-1f42fb90] {\n  display: flex;\n  background: #8c756c;\n  color: white;\n  justify-content: space-evenly;\n}\n.banner-wrapper[data-v-1f42fb90] {\n  display: flex;\n  flex-direction: column;\n  margin: auto 2em;\n}\n.login-wrapper[data-v-1f42fb90] {\n  display: flex;\n  flex-direction: column;\n  margin-top: 1em;\n}\na[data-v-1f42fb90] {\n  color: white;\n  margin: 0.5em auto;\n}\n", ""]);
+exports.push([module.i, "\nh1[data-v-1f42fb90] {\n  margin: 0 auto;\n  font-size: 6em;\n}\n.header-wrapper[data-v-1f42fb90] {\n  display: flex;\n  background: #8c756c;\n  color: white;\n  justify-content: space-evenly;\n}\n.banner-wrapper[data-v-1f42fb90] {\n  display: flex;\n  flex-direction: column;\n  margin: auto 2em;\n}\n.login-wrapper[data-v-1f42fb90] {\n  display: flex;\n  flex-direction: column;\n  margin-top: 1em;\n}\na[data-v-1f42fb90] {\n  color: white;\n  margin: 0.5em auto;\n}\n@media (max-width: 1024px) {\n.header-wrapper[data-v-1f42fb90] {\n    display: block;\n    padding-bottom: 1.25em;\n}\nh1[data-v-1f42fb90] {\n    font-size: 7.5em;\n}\n.login-wrapper[data-v-1f42fb90] {\n    display: inline;\n}\na[data-v-1f42fb90] {\n    margin: 0.5em 0.5em;\n    font-size: 2em;\n}\np[data-v-1f42fb90] {\n    margin: 0.5em 0;\n    font-size: 2em;\n}\n}\n", ""]);
 
 // exports
 
@@ -14118,7 +14118,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\nh3[data-v-43ab059a] {\n  margin: 0 auto 0.75em;\n  background: #a6958f;\n  color: #f5f5f5;\n  width: 12vw;\n  height: 55px;\n  border-radius: 5%;\n  font-weight: bold;\n}\n.task-list-wrapper[data-v-43ab059a] {\n  display: flex;\n  flex-direction: row;\n  margin: 0 1em;\n  background-position: top center;\n  background-size: contain;\n  background-color: #d9cdbf;\n  background-blend-mode: darken;\n}\n.task[data-v-43ab059a] {\n  display: flex;\n  flex-direction: column;\n  margin: 5px auto;\n  background-color: #f2e9e9;\n  width: 150px;\n  border-radius: 12%;\n}\n.option[data-v-43ab059a] {\n  margin: 0 auto;\n  color: #261b18;\n}\n.task-wrapper[data-v-43ab059a] {\n  display: flex;\n  flex-direction: column;\n  margin: 1em;\n  flex-grow: 1;\n}\n.complete[data-v-43ab059a] {\n  margin: 0.5em auto;\n  margin-bottom: 0.5em;\n  height: 1.5em;\n  width: 50px;\n  background-color: #261b18;\n  color: white;\n  cursor: pointer;\n  border-radius: 15%;\n  box-shadow: 1px 1px 1px #222222;\n}\n#task-input[data-v-43ab059a] {\n  margin: 0.5em auto;\n  border: 2px solid #d9c7c1;\n  background: #f2e9e9;\n  color: #261b18;\n  height: 25px;\n}\nlabel[data-v-43ab059a] {\n  margin: 0 auto;\n  margin-bottom: 0.25em;\n  background: #f2e9e9;\n  width: 45px;\n}\n.remove[data-v-43ab059a] {\n  color: white;\n  height: 16px;\n  width: 15px;\n  font-size: 15px;\n  font-weight: bold;\n  background: #a6958f;\n  margin-left: 134px;\n  margin-top: 2px;\n  cursor: pointer;\n  border-radius: 50%;\n}\n.add-button[data-v-43ab059a] {\n  margin-top: 0.05em;\n}\n#daily[data-v-43ab059a] {\n  margin: 1em auto;\n}\n", ""]);
+exports.push([module.i, "\nh3[data-v-43ab059a] {\n  margin: 0 auto 0.75em;\n  background: #a6958f;\n  color: #f5f5f5;\n  width: 12vw;\n  height: 55px;\n  border-radius: 5%;\n  font-weight: bold;\n}\n.task-list-wrapper[data-v-43ab059a] {\n  display: flex;\n  flex-direction: row;\n  margin: 0 1em;\n  background-position: top center;\n  background-size: contain;\n  background-color: #d9cdbf;\n  background-blend-mode: darken;\n}\n.task[data-v-43ab059a] {\n  display: flex;\n  flex-direction: column;\n  margin: 5px auto;\n  background-color: #f2e9e9;\n  width: 150px;\n  border-radius: 12%;\n}\n.option[data-v-43ab059a] {\n  margin: 0 auto;\n  color: #261b18;\n}\np[data-v-43ab059a] {\n  margin: 0.5em;\n}\n.task-column-wrapper[data-v-43ab059a] {\n  display: flex;\n  flex-direction: column;\n  margin: 1em;\n  flex-grow: 1;\n}\n.complete[data-v-43ab059a] {\n  margin: 0.5em auto;\n  margin-bottom: 0.5em;\n  height: 1.5em;\n  width: 50px;\n  background-color: #261b18;\n  color: white;\n  cursor: pointer;\n  border-radius: 15%;\n  box-shadow: 1px 1px 1px #222222;\n}\n#task-input[data-v-43ab059a] {\n  margin: 0.5em auto;\n  border: 2px solid #d9c7c1;\n  background: #f2e9e9;\n  color: #261b18;\n  height: 25px;\n}\nlabel[data-v-43ab059a] {\n  margin: 0 auto;\n  margin-bottom: 0.25em;\n  background: #f2e9e9;\n  width: 45px;\n}\n.remove[data-v-43ab059a] {\n  color: white;\n  height: 16px;\n  width: 15px;\n  font-size: 15px;\n  font-weight: bold;\n  background: #a6958f;\n  margin-left: 134px;\n  margin-top: 2px;\n  cursor: pointer;\n  border-radius: 50%;\n}\n.add-button[data-v-43ab059a] {\n  margin-top: 0.05em;\n}\n@media (max-width: 1024px) {\n.task-list-wrapper[data-v-43ab059a] {\n    display: block;\n}\n.task-column-wrapper[data-v-43ab059a] {\n    width: 75vw;\n    margin: 0.5em auto;\n}\nh3[data-v-43ab059a] {\n    width: 65vw;\n    margin: inherit auto;\n    font-size: 3em;\n    height: 75px;\n    margin-top: 10px;\n}\n#task-input[data-v-43ab059a] {\n    width: 35vw;\n    height: 1.25em;\n    font-size: 4em;\n}\n.task[data-v-43ab059a] {\n    width: 75vw;\n    margin: 0.75em auto;\n}\n.remove[data-v-43ab059a] {\n    height: 30px;\n    width: 32px;\n    position: relative;\n    top: 5px;\n    left: 75%;\n}\n.complete[data-v-43ab059a] {\n    width: 25vw;\n    height: 3em;\n    margin-top: 0.5em;\n    font-size: 1.75em;\n}\np[data-v-43ab059a] {\n    font-size: 2em;\n}\n}\n", ""]);
 
 // exports
 
@@ -15419,9 +15419,7 @@ var staticRenderFns = [
       _c("a", { attrs: { href: "/login" } }, [_vm._v("Login")]),
       _vm._v(" "),
       _c("a", { attrs: { href: "/register" } }, [
-        _vm._v("\n      New User?\n      "),
-        _c("br"),
-        _vm._v("Create an account!\n    ")
+        _vm._v("New User? Create an account!")
       ]),
       _vm._v(" "),
       _c("a", { attrs: { href: "/logout" } }, [_vm._v("Logout")])
@@ -15458,9 +15456,56 @@ var render = function() {
       }
     },
     [
+      _c("div", { staticClass: "new-task task-column-wrapper" }, [
+        _c("h3", [_vm._v("Add a New Task")]),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.input,
+              expression: "input"
+            }
+          ],
+          attrs: { type: "text", id: "task-input" },
+          domProps: { value: _vm.input },
+          on: {
+            keyup: function($event) {
+              if (
+                !$event.type.indexOf("key") &&
+                _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
+              ) {
+                return null
+              }
+              return _vm.addTask(_vm.input, _vm.daily)
+            },
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.input = $event.target.value
+            }
+          }
+        }),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "complete add-button",
+            on: {
+              click: function($event) {
+                return _vm.addTask(_vm.input, _vm.daily)
+              }
+            }
+          },
+          [_vm._v("ADD")]
+        )
+      ]),
+      _vm._v(" "),
       _c(
         "div",
-        { staticClass: "task-wrapper" },
+        { staticClass: "task-column-wrapper" },
         [
           _c("h3", [_vm._v("To-Do:")]),
           _vm._v(" "),
@@ -15492,7 +15537,7 @@ var render = function() {
                               }
                             }
                           },
-                          [_vm._v(_vm._s(task.title))]
+                          [_c("p", [_vm._v(_vm._s(task.title))])]
                         )
                       : _vm._e(),
                     _vm._v(" "),
@@ -15558,7 +15603,7 @@ var render = function() {
       _vm._v(" "),
       _c(
         "div",
-        { staticClass: "task-wrapper" },
+        { staticClass: "task-column-wrapper" },
         [
           _c("h3", [_vm._v("Completed Tasks")]),
           _vm._v(" "),
@@ -15590,7 +15635,7 @@ var render = function() {
                               }
                             }
                           },
-                          [_vm._v(_vm._s(task.title))]
+                          [_c("p", [_vm._v(_vm._s(task.title))])]
                         )
                       : _vm._e(),
                     _vm._v(" "),
@@ -15652,92 +15697,7 @@ var render = function() {
           })
         ],
         2
-      ),
-      _vm._v(" "),
-      _c("div", { staticClass: "new-task task-wrapper" }, [
-        _c("h3", [_vm._v("Add a New Task")]),
-        _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.input,
-              expression: "input"
-            }
-          ],
-          attrs: { type: "text", id: "task-input" },
-          domProps: { value: _vm.input },
-          on: {
-            keyup: function($event) {
-              if (
-                !$event.type.indexOf("key") &&
-                _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
-              ) {
-                return null
-              }
-              return _vm.addTask(_vm.input, _vm.daily)
-            },
-            input: function($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.input = $event.target.value
-            }
-          }
-        }),
-        _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.daily,
-              expression: "daily"
-            }
-          ],
-          attrs: { type: "checkbox", id: "daily" },
-          domProps: {
-            checked: Array.isArray(_vm.daily)
-              ? _vm._i(_vm.daily, null) > -1
-              : _vm.daily
-          },
-          on: {
-            change: function($event) {
-              var $$a = _vm.daily,
-                $$el = $event.target,
-                $$c = $$el.checked ? true : false
-              if (Array.isArray($$a)) {
-                var $$v = null,
-                  $$i = _vm._i($$a, $$v)
-                if ($$el.checked) {
-                  $$i < 0 && (_vm.daily = $$a.concat([$$v]))
-                } else {
-                  $$i > -1 &&
-                    (_vm.daily = $$a.slice(0, $$i).concat($$a.slice($$i + 1)))
-                }
-              } else {
-                _vm.daily = $$c
-              }
-            }
-          }
-        }),
-        _vm._v(" "),
-        _c("label", { attrs: { for: "daily" } }, [_vm._v("Daily")]),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass: "complete add-button",
-            on: {
-              click: function($event) {
-                return _vm.addTask(_vm.input, _vm.daily)
-              }
-            }
-          },
-          [_vm._v("ADD")]
-        )
-      ])
+      )
     ]
   )
 }
