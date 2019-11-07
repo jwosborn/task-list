@@ -152,6 +152,9 @@ p {
   border-radius: 15%;
   box-shadow: 1px 1px 1px #222222;
 }
+.new-task {
+  order: 3;
+}
 #task-input {
   margin: 0.5em auto;
   border: 2px solid #d9c7c1;
@@ -181,6 +184,8 @@ label {
   margin-top: 0.05em;
 }
 
+/* mobile media query */
+
 @media (max-width: 1024px) {
   .task-list-wrapper {
     display: block;
@@ -195,6 +200,9 @@ label {
     font-size: 3em;
     height: 75px;
     margin-top: 10px;
+  }
+  .new-task {
+    order: 1;
   }
   #task-input {
     width: 35vw;
