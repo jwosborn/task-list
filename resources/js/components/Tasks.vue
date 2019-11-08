@@ -63,7 +63,6 @@ export default {
       axios
         .post("/tasks", {
           title: this.input,
-          weekly: !this.daily,
           created_by: this.user
         })
         .then(res => ((this.tasks = res.data), (this.input = "")));
@@ -85,7 +84,6 @@ export default {
   data: function() {
     return {
       input: "",
-      daily: true,
       image: require("@/../../public/jpg/light-wood.jpg"),
       error: "",
       tasks: []
@@ -106,7 +104,7 @@ h3 {
   margin: 0 auto 0.75em;
   background: #a6958f;
   color: #f5f5f5;
-  width: 12vw;
+  width: 25vw;
   height: 55px;
   border-radius: 5%;
   font-weight: bold;
@@ -219,6 +217,7 @@ label {
     position: relative;
     top: 5px;
     left: 75%;
+    font-size: 30px;
   }
   .complete {
     width: 25vw;

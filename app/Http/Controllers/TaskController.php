@@ -22,7 +22,6 @@ class TaskController extends Controller
     {
         $task = Task::findOrFail($id);
         $task->title=$request->title;
-        $task->weekly=$request->weekly;
         $task->isDone=!$request->isDone;
         $task->edit=0;
         $task->created_by=$request->created_by;

@@ -52,7 +52,6 @@ class TasksController extends Controller
     {
         $task = new Task();
         $task->title=$request->title;
-        $task->weekly=$request->weekly;
         $task->isDone=0;
         $task->edit=0;
         $task->created_by=$request->created_by;
@@ -93,7 +92,6 @@ class TasksController extends Controller
     {
         $task = Task::findOrFail($id);
         $task->title=$request->title;
-        $task->weekly=$request->weekly;
         $task->isDone=$request->isDone;
         $task->edit=0;
         $task->created_by=$request->created_by;
