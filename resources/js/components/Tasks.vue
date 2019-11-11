@@ -24,6 +24,7 @@
             v-model="task.title"
             @keyup.enter="updateTask(task)"
             v-on:blur="updateTask(task)"
+            id="edit-input"
           />
           <div class="complete" @click="toggleComplete(task)">DONE</div>
         </div>
@@ -43,6 +44,7 @@
             v-model="task.title"
             @keyup.enter="updateTask(task)"
             v-on:blur="updateTask(task)"
+            id="edit-input"
           />
           <div class="complete" @click="toggleComplete(task)">RESET</div>
         </div>
@@ -111,6 +113,7 @@ h3 {
 }
 .task-list-wrapper {
   display: flex;
+  width: 98vw;
   flex-direction: row;
   margin: 0 1em;
   background-position: top center;
@@ -120,18 +123,18 @@ h3 {
 }
 .task {
   display: flex;
-  flex-direction: column;
   margin: 5px auto;
+  width: 25vw;
   background-color: #f2e9e9;
-  width: 150px;
-  border-radius: 12%;
+  flex-direction: row;
+  border-radius: 3%;
 }
 .option {
   margin: 0 auto;
   color: #261b18;
 }
 p {
-  margin: 0.5em;
+  font-size: 0.85em;
 }
 .task-column-wrapper {
   display: flex;
@@ -140,8 +143,8 @@ p {
   flex-grow: 1;
 }
 .complete {
-  margin: 0.5em auto;
-  margin-bottom: 0.5em;
+  margin: auto;
+  margin-right: 5px;
   height: 1.5em;
   width: 50px;
   background-color: #261b18;
@@ -173,13 +176,16 @@ label {
   font-size: 15px;
   font-weight: bold;
   background: #a6958f;
-  margin-left: 134px;
-  margin-top: 2px;
+  margin: auto 5px;
   cursor: pointer;
   border-radius: 50%;
 }
 .add-button {
-  margin-top: 0.05em;
+  margin: auto;
+  margin-top: 1em;
+}
+#edit-input {
+  font-size: 1.25em;
 }
 
 /* mobile media query */
@@ -208,6 +214,7 @@ label {
     font-size: 4em;
   }
   .task {
+    flex-direction: column;
     width: 75vw;
     margin: 0.75em auto;
   }
@@ -216,13 +223,13 @@ label {
     width: 32px;
     position: relative;
     top: 5px;
-    left: 75%;
+    left: 85%;
     font-size: 30px;
   }
   .complete {
     width: 25vw;
     height: 3em;
-    margin-top: 0.5em;
+    margin: 0.5em auto;
     font-size: 1.75em;
   }
   p {
