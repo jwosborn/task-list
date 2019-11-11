@@ -1,7 +1,7 @@
 <template>
   <div class="footer-wrapper">
     <span>
-      <h4>Life Tasks was created by Jeremy Osborn for the purpose of daily use to organize productivity.</h4>
+      <h4>Task List was created by Jeremy Osborn for the purpose of daily use to organize productivity.</h4>
     </span>
   </div>
 </template>

@@ -15370,7 +15370,7 @@ var staticRenderFns = [
       _c("span", [
         _c("h4", [
           _vm._v(
-            "Life Tasks was created by Jeremy Osborn for the purpose of daily use to organize productivity."
+            "Task List was created by Jeremy Osborn for the purpose of daily use to organize productivity."
           )
         ])
       ])
