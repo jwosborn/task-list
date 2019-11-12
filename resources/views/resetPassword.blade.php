@@ -10,6 +10,9 @@
     <div class="form-group">
       <form method="POST" action="/resetPassword">
         @csrf
+        @if(Session::has('error'))
+         <p class="alert">*{{ Session::get('error') }}</p>
+        @endif
         <p>Email</p>
         <input type="email" name="email" required />
         <p>New Password</p>

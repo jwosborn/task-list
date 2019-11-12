@@ -43,9 +43,9 @@ class LoginController1 extends Controller
         $user=User::where('email', $loginUser)->first(); 
         
         if(!$user) {
-            $error='invalid email';
+            $error='Invalid Email';
             Session()->put('error', $error);
-            return redirect('/passwordReset');
+            return redirect('/resetPassword');
         } else {
             $user->password=Hash::make($request->password);
             $user->save();
