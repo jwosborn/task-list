@@ -23,6 +23,9 @@
       </form>
     </div>
     <div class="register">
+      Forgot Password? <a href='/resetPassword'>Reset it here.</a>
+    </div>
+    <div class="register">
       New User?
       <a href="/register">Register Here</a>
     </div>

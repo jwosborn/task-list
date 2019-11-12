@@ -27,5 +27,9 @@ Route::group(['middleware' => ['web']], function () {
         return $user;
     });
 });
+Route::post('/resetPassword', 'LoginController1@resetPassword');
+Route::get('/resetPassword', function() {
+    return view('/resetPassword');
+});
 Route::resource('tasks', 'TasksController');
 Route::patch('/task/{id}', 'TaskController@toggleComplete');

@@ -35,5 +35,23 @@ class LoginController1 extends Controller
             return redirect('/login');
         }
     }
+
+    public function resetPassword (Request $request) 
+    {
+
+        $loginUser = $request->input('email');
+        $user=User::where('email', $loginUser)->first(); 
+        
+        if(!$user) {
+            $error='invalid email';
+            Session()->put('error', $error);
+            return redirect('/passwordReset');
+        } else {
+            $user->password=Hash::make($request->password);
+            $user->save();
+            return redirect('/login');
+            
+        }
+    }
    }
 
