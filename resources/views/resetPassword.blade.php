@@ -18,7 +18,7 @@
         <p>New Password</p>
         <input type="password" name="password" required />
         <p>Confirm New Password</p>
-        <input type="password" required />
+        <input type="password" name="confirm" required />
         <input class="submit-button" type="submit" value="Reset Password" />
       </form>
       <div class="login">

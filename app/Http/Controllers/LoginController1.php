@@ -46,11 +46,15 @@ class LoginController1 extends Controller
             $error='Invalid Email';
             Session()->put('error', $error);
             return redirect('/resetPassword');
+        } elseif($request->input('password') != $request->input('confirm')) {
+            $error="Passwords do not match.";
+            Session()->put('error', $error);
+            return redirect('/resetPassword');
         } else {
             $user->password=Hash::make($request->password);
             $user->save();
             return redirect('/login');
-            
+   
         }
     }
    }
