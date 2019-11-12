@@ -2,7 +2,6 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Str;
 
 class UsersTableSeeder extends Seeder
 {
@@ -17,7 +16,6 @@ class UsersTableSeeder extends Seeder
             'userName' => 'admin',
             'email' => 'admin@admin.com',
             'password' => Hash::make('password'),
-            'isLoggedIn' => 0,
         ]);
     }
 }

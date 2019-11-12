@@ -6,10 +6,7 @@
     </div>
     <div class="login-wrapper">
       <a href="/login">Login</a>
-      <a href="/register">
-        New User?
-        <br />Create an account!
-      </a>
+      <a href="/register">New User? Create an account!</a>
       <a href="/logout">Logout</a>
     </div>
   </div>
@@ -18,14 +15,7 @@
 import axios from "axios";
 export default {
   name: "Header",
-  data() {
-    return {
-      user: ""
-    };
-  },
-  created() {
-    axios.get("api/tasks").then(res => (this.user = res.data.user));
-  }
+  props: { user: String }
 };
 </script>
 
@@ -55,5 +45,25 @@ h1 {
 a {
   color: white;
   margin: 0.5em auto;
+}
+@media (max-width: 1024px) {
+  .header-wrapper {
+    display: block;
+    padding-bottom: 1.25em;
+  }
+  h1 {
+    font-size: 7.5em;
+  }
+  .login-wrapper {
+    display: inline;
+  }
+  a {
+    margin: 0.5em 0.5em;
+    font-size: 2em;
+  }
+  p {
+    margin: 0.5em 0;
+    font-size: 2em;
+  }
 }
 </style>

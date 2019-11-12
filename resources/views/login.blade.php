@@ -7,7 +7,7 @@
 <body>
 <div class="login-wrapper">
     <header>
-      <h1>Please Login to continue to the App.</h1>
+      <h1>Please Login tooooo continue to the App.</h1>
     </header>
     <div class="form-group">
       <form method="POST" action="{{url('/login')}}">
@@ -21,6 +21,9 @@
         <p class="alert">*{{ Session::get('error') }}</p>
       @endif
       </form>
+    </div>
+    <div class="register">
+      Forgot Password? <a href='/resetPassword'>Reset it here.</a>
     </div>
     <div class="register">
       New User?

@@ -5,79 +5,50 @@
         'background-image': 'url(' + image + ')',
       }"
   >
-    <div class="task-wrapper">
-      <h3>Daily Tasks</h3>
-      <div :key="task.id" v-for="task in tasks">
-        <div class="task" v-if="!task.isDone && !task.weekly">
-          <div class="remove" @click="removeTask(task)">X</div>
-          <div class="option" @dblclick="task.edit = 1" v-if="task.edit === 0">{{ task.title }}</div>
-          <input
-            v-if="task.edit === 1"
-            v-model="task.title"
-            @keyup.enter="updateTask(task)"
-            v-on:blur="updateTask(task)"
-          />
-          <div class="complete" @click="task.isDone = !task.isDone">DONE</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="task-wrapper">
-      <h3>Weekly Tasks</h3>
-      <div :key="task.id" v-for="task in tasks">
-        <div class="task" v-if="task.weekly && !task.isDone">
-          <div class="remove" @click="removeTask(task)">X</div>
-          <div class="option" @dblclick="task.edit = 1" v-if="task.edit === 0">{{ task.title }}</div>
-          <input
-            v-if="task.edit === 1"
-            v-model="task.title"
-            @keyup.enter="updateTask(task)"
-            v-on:blur="updateTask(task)"
-          />
-          <div class="complete" @click="task.isDone = !task.isDone">DONE</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="task-wrapper">
-      <h3>Completed Daily Tasks</h3>
-      <div :key="task.id" v-for="task in tasks">
-        <div class="task" v-if="task.isDone && !task.weekly">
-          <div class="remove" @click="removeTask(task)">X</div>
-          <div class="option" @dblclick="task.edit = 1" v-if="task.edit === 0">{{ task.title }}</div>
-          <input
-            v-if="task.edit === 1"
-            v-model="task.title"
-            @keyup.enter="updateTask(task)"
-            v-on:blur="updateTask(task)"
-          />
-          <div class="complete" @click="task.isDone = !task.isDone">DONE</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="task-wrapper">
-      <h3>Completed Weekly Tasks</h3>
-      <div :key="task.id" v-for="task in tasks">
-        <div class="task" v-if="task.isDone && task.weekly">
-          <div class="remove" @click="removeTask(task)">X</div>
-          <div class="option" @dblclick="task.edit = 1" v-if="task.edit === 0">{{ task.title }}</div>
-          <input
-            v-if="task.edit === 1"
-            v-model="task.title"
-            @keyup.enter="updateTask(task)"
-            v-on:blur="updateTask(task)"
-          />
-          <div class="complete" @click="task.isDone = !task.isDone">DONE</div>
-        </div>
-      </div>
-    </div>
-    <div class="new-task task-wrapper">
+    <div class="new-task task-column-wrapper">
       <h3>Add a New Task</h3>
       <input type="text" id="task-input" @keyup.enter="addTask(input,daily)" v-model="input" />
-      <input type="checkbox" id="daily" v-model="daily" />
-      <label for="daily">Daily</label>
       <div class="complete add-button" @click="addTask(input, daily)">ADD</div>
+    </div>
+
+    <div class="task-column-wrapper">
+      <h3>To-Do:</h3>
+      <div :key="task.id" v-for="task in tasks">
+        <div class="task" v-if="!task.isDone">
+          <div class="remove" @click="removeTask(task)">X</div>
+          <div class="option" @dblclick="task.edit = 1" v-if="task.edit === 0">
+            <p>{{ task.title }}</p>
+          </div>
+          <input
+            v-if="task.edit === 1"
+            v-model="task.title"
+            @keyup.enter="updateTask(task)"
+            v-on:blur="updateTask(task)"
+            id="edit-input"
+          />
+          <div class="complete" @click="toggleComplete(task)">DONE</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="task-column-wrapper">
+      <h3>Completed Tasks</h3>
+      <div :key="task.id" v-for="task in tasks">
+        <div class="task" v-if="task.isDone">
+          <div class="remove" @click="removeTask(task)">X</div>
+          <div class="option" @dblclick="task.edit = 1" v-if="task.edit === 0">
+            <p>{{ task.title }}</p>
+          </div>
+          <input
+            v-if="task.edit === 1"
+            v-model="task.title"
+            @keyup.enter="updateTask(task)"
+            v-on:blur="updateTask(task)"
+            id="edit-input"
+          />
+          <div class="complete" @click="toggleComplete(task)">RESET</div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -87,33 +58,44 @@ import axios from "axios";
 export default {
   name: "Tasks",
   props: {
-    tasks: Array
+    user: String
   },
   methods: {
     addTask() {
       axios
-        .post("/api/tasks/", { title: this.input, weekly: !this.daily })
+        .post("/tasks", {
+          title: this.input,
+          created_by: this.user
+        })
         .then(res => ((this.tasks = res.data), (this.input = "")));
     },
     removeTask(task) {
+      axios.delete(`/tasks/${task.id}`).then(res => (this.tasks = res.data));
+    },
+    toggleComplete(task) {
       axios
-        .delete(`/api/tasks/${task.id}`)
+        .patch(`/task/${task.id}`, task)
         .then(res => (this.tasks = res.data));
     },
     updateTask(task) {
       axios
-        .patch(`/api/tasks/${task.id}`, task)
+        .patch(`/tasks/${task.id}`, task)
         .then(res => (this.tasks = res.data));
     }
   },
   data: function() {
     return {
       input: "",
-      daily: true,
       image: require("@/../../public/jpg/light-wood.jpg"),
-      user: "",
-      error: ""
+      error: "",
+      tasks: []
     };
+  },
+  created() {
+    axios
+      .get("/tasks")
+      .then(res => (this.tasks = res.data))
+      .catch(e => console.log(e));
   }
 };
 </script>
@@ -124,13 +106,14 @@ h3 {
   margin: 0 auto 0.75em;
   background: #a6958f;
   color: #f5f5f5;
-  width: 12vw;
+  width: 25vw;
   height: 55px;
   border-radius: 5%;
   font-weight: bold;
 }
 .task-list-wrapper {
   display: flex;
+  width: 98vw;
   flex-direction: row;
   margin: 0 1em;
   background-position: top center;
@@ -140,25 +123,28 @@ h3 {
 }
 .task {
   display: flex;
-  flex-direction: column;
   margin: 5px auto;
+  width: 25vw;
   background-color: #f2e9e9;
-  width: 150px;
-  border-radius: 12%;
+  flex-direction: row;
+  border-radius: 3%;
 }
 .option {
   margin: 0 auto;
   color: #261b18;
 }
-.task-wrapper {
+p {
+  font-size: 0.85em;
+}
+.task-column-wrapper {
   display: flex;
   flex-direction: column;
   margin: 1em;
   flex-grow: 1;
 }
 .complete {
-  margin: 0.5em auto;
-  margin-bottom: 0.5em;
+  margin: auto;
+  margin-right: 5px;
   height: 1.5em;
   width: 50px;
   background-color: #261b18;
@@ -166,6 +152,9 @@ h3 {
   cursor: pointer;
   border-radius: 15%;
   box-shadow: 1px 1px 1px #222222;
+}
+.new-task {
+  order: 3;
 }
 #task-input {
   margin: 0.5em auto;
@@ -187,15 +176,64 @@ label {
   font-size: 15px;
   font-weight: bold;
   background: #a6958f;
-  margin-left: 134px;
-  margin-top: 2px;
+  margin: auto 5px;
   cursor: pointer;
   border-radius: 50%;
 }
 .add-button {
-  margin-top: 0.05em;
+  margin: auto;
+  margin-top: 1em;
 }
-#daily {
-  margin: 1em auto;
+#edit-input {
+  font-size: 1.25em;
+}
+
+/* mobile media query */
+
+@media (max-width: 1024px) {
+  .task-list-wrapper {
+    display: block;
+  }
+  .task-column-wrapper {
+    width: 75vw;
+    margin: 0.5em auto;
+  }
+  h3 {
+    width: 65vw;
+    margin: inherit auto;
+    font-size: 3em;
+    height: 75px;
+    margin-top: 10px;
+  }
+  .new-task {
+    order: 1;
+  }
+  #task-input {
+    width: 35vw;
+    height: 1.25em;
+    font-size: 4em;
+  }
+  .task {
+    flex-direction: column;
+    width: 75vw;
+    margin: 0.75em auto;
+  }
+  .remove {
+    height: 30px;
+    width: 32px;
+    position: relative;
+    top: 5px;
+    left: 85%;
+    font-size: 30px;
+  }
+  .complete {
+    width: 25vw;
+    height: 3em;
+    margin: 0.5em auto;
+    font-size: 1.75em;
+  }
+  p {
+    font-size: 2em;
+  }
 }
 </style>

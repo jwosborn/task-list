@@ -21,3 +21,15 @@ Route::post('/login', 'LoginController1@login');
 Route::get('/logout', 'LogoutController@logout');
 Route::get('/register', 'NewUserController@index');
 Route::post('/register', 'NewUserController@create');
+Route::group(['middleware' => ['web']], function () {
+    Route::get('/user', function(Request $request) {
+        $user = Session::get("username");
+        return $user;
+    });
+});
+Route::post('/resetPassword', 'LoginController1@resetPassword');
+Route::get('/resetPassword', function() {
+    return view('/resetPassword');
+});
+Route::resource('tasks', 'TasksController');
+Route::patch('/task/{id}', 'TaskController@toggleComplete');

@@ -28,11 +28,33 @@ class LoginController1 extends Controller
         } elseif (Hash::check($loginPassword, $user->password)){
             Session()->put('username', $user->username);
             Session()->forget('error');
-            return view('index');
+            return redirect('/');
         } else {
             $error='Invalid Password';
             Session()->put('error', $error);
             return redirect('/login');
+        }
+    }
+
+    public function resetPassword (Request $request) 
+    {
+
+        $loginUser = $request->input('email');
+        $user=User::where('email', $loginUser)->first(); 
+        
+        if(!$user) {
+            $error='Invalid Email';
+            Session()->put('error', $error);
+            return redirect('/resetPassword');
+        } elseif($request->input('password') != $request->input('confirm')) {
+            $error="Passwords do not match.";
+            Session()->put('error', $error);
+            return redirect('/resetPassword');
+        } else {
+            $user->password=Hash::make($request->password);
+            $user->save();
+            return redirect('/login');
+   
         }
     }
    }
